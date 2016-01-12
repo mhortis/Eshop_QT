@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdministratorPanel</class>
+ <widget class="QMainWindow" name="AdministratorPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAdministration">
+    <property name="title">
+     <string>Create User</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuShow">
+    <property name="title">
+     <string>Eshop Administration</string>
+    </property>
+    <widget class="QMenu" name="menuProducts">
+     <property name="title">
+      <string>Products</string>
+     </property>
+     <addaction name="actionAdd_Remove_Product"/>
+     <addaction name="actionUpdate_Remove_Product"/>
+     <addaction name="actionRemove_Product"/>
+    </widget>
+    <addaction name="actionCustomers"/>
+    <addaction name="menuProducts"/>
+   </widget>
+   <widget class="QMenu" name="menuOperation_Cycle_Calculation">
+    <property name="title">
+     <string>Operation Cycle Calculation</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuOrders">
+    <property name="title">
+     <string>Orders</string>
+    </property>
+    <addaction name="actionPrint_Order_per_Customer"/>
+    <addaction name="actionPrint_Order_per_Product"/>
+    <addaction name="actionUpdate_Order_Status"/>
+   </widget>
+   <widget class="QMenu" name="menuLogout">
+    <property name="title">
+     <string>Logout</string>
+    </property>
+   </widget>
+   <addaction name="menuShow"/>
+   <addaction name="menuAdministration"/>
+   <addaction name="menuOrders"/>
+   <addaction name="menuOperation_Cycle_Calculation"/>
+   <addaction name="menuLogout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionCustomers">
+   <property name="text">
+    <string>Customers</string>
+   </property>
+  </action>
+  <action name="actionCreate_USer">
+   <property name="text">
+    <string>Create User</string>
+   </property>
+  </action>
+  <action name="actionCreate_Administrator">
+   <property name="text">
+    <string>Create Administrator</string>
+   </property>
+  </action>
+  <action name="actionAdd_Remove_Product">
+   <property name="text">
+    <string>Add Product</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Remove_Product">
+   <property name="text">
+    <string>Update Product</string>
+   </property>
+  </action>
+  <action name="actionRemove_Product">
+   <property name="text">
+    <string>Remove Product</string>
+   </property>
+  </action>
+  <action name="actionPrint_Order_per_Customer">
+   <property name="text">
+    <string>Print Order per Customer</string>
+   </property>
+  </action>
+  <action name="actionPrint_Order_per_Product">
+   <property name="text">
+    <string>Print Order per Order Status</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Order_Status">
+   <property name="text">
+    <string>Update Order Status</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

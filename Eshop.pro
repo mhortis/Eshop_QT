@@ -26,7 +26,9 @@ SOURCES += main.cpp\
     Smartphone.cpp \
     TV.cpp \
     UserBase.cpp \
-    UserDAO.cpp
+    UserDAO.cpp \
+    administratorpanel.cpp \
+    customerpanel.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -42,9 +44,13 @@ HEADERS  += mainwindow.h \
     TV.h \
     UserBase.h \
     UserDAO.h \
-    stdafx.h
+    stdafx.h \
+    administratorpanel.h \
+    customerpanel.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    administratorpanel.ui \
+    customerpanel.ui
 QT += sql
 
 DISTFILES += \

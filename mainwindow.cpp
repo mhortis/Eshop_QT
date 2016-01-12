@@ -14,5 +14,5 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setLabel(std::string text){
-    ui->label->setText(QString::fromStdString(text));
+    //ui->label->setText(QString::fromStdString(text));
 }
