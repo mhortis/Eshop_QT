@@ -10,9 +10,9 @@ public:
     string getAfm();
     string getPhoneNumber();
     string getAddress();
-    void setAfm(const char* afm);
-    void setPhoneNumber(const char* phoneNumber);
-    void setAddress(const char* address);
+    void setAfm(string afm);
+    void setPhoneNumber(string phoneNumber);
+    void setAddress(string address);
 	void addProductToCart(ProductBase product, int quantity);
 	void updateProductItemsInCart(ProductBase product, int newQuantity);
 	void removeProductFromCart(ProductBase product);

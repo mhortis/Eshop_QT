@@ -45,7 +45,6 @@ HEADERS  += mainwindow.h \
     stdafx.h
 
 FORMS    += mainwindow.ui
-QMAKE_LFLAGS += /INCREMENTAL:NO
 QT += sql
 
 DISTFILES += \

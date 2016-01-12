@@ -25,10 +25,10 @@ void UserBase::setUserID(int userID) {
 	this->userID = userID;
 }
 
-void UserBase::setUsername(const char* username) {
-    this->username = string(username);
+void UserBase::setUsername(string username) {
+    this->username = username;
 }
 
-void UserBase::setPassword(const char* password) {
-    this->password = string(password);
+void UserBase::setPassword(string password) {
+    this->password = password;
 }

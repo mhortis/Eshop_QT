@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Order.h"
-
+#include <cstring>
 char* Order::getOrderNumber() {
 	return this->orderNumber;
 }
@@ -22,7 +22,7 @@ char* Order::getOrderStatus() {
 }
 
 void Order::setOrderNumber(char* orderNumber) {
-	this->orderNumber = new char[strlen(orderNumber) + 1];
+    this->orderNumber = new char[strlen(orderNumber) + 1];
 	strcpy(this->orderNumber, orderNumber);
 }
 

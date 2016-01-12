@@ -29,19 +29,19 @@ string Company::getFax()
 	return this->fax;
 }
 
-void Company::setCompanyName(const char* companyName)
+void Company::setCompanyName(string companyName)
 {
-    this->companyName = string(companyName);
+    this->companyName = companyName;
 }
 
-void Company::setResponsibleName(const char* responsibleName)
+void Company::setResponsibleName(string responsibleName)
 {
-    this->responsibleName = string(responsibleName);
+    this->responsibleName = responsibleName;
 }
 
-void Company::setResponsibleSurname(const char* responsibleSurname)
+void Company::setResponsibleSurname(string responsibleSurname)
 {
-    this->responsibleSurname = string(responsibleSurname);
+    this->responsibleSurname = responsibleSurname;
 }
 
 void Company::setDiscount(double discount)
@@ -49,9 +49,9 @@ void Company::setDiscount(double discount)
 	this->discount = discount;
 }
 
-void Company::setFax(const char* fax)
+void Company::setFax(string fax)
 {
-    this->fax = string(fax);
+    this->fax = fax;
 }
 
 Order Company::placeOrder()
