@@ -10,7 +10,7 @@ UserDAO::UserDAO(QSqlDatabase database)
 
 int UserDAO::insertAdminInDB(Administrator admin) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -25,14 +25,14 @@ int UserDAO::insertAdminInDB(Administrator admin) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new administrator. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new administrator. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int UserDAO::insertPersonInDB(Person cust) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -54,14 +54,14 @@ int UserDAO::insertPersonInDB(Person cust) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new customer. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new customer. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int UserDAO::insertCompanyInDB(Company cust) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -85,14 +85,14 @@ int UserDAO::insertCompanyInDB(Company cust) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new company. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new company. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int UserDAO::removeUserFromDB(int userID) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -106,14 +106,14 @@ int UserDAO::removeUserFromDB(int userID) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in deletion of user. Error code: %d\n", query.lastError());
+        qDebug() << "Error in deletion of user. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 UserBase UserDAO::fetchUserByIDFromDB(int userID) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         UserBase user;
         return user;
     }
@@ -160,7 +160,7 @@ UserBase UserDAO::fetchUserByIDFromDB(int userID) {
         }
     }
     else{
-        fprintf(stderr, "Error in fetching users. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching users. Error code: " << query.lastError() << endl;
         UserBase user;
         return user;
     }

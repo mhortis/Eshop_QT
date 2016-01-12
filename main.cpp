@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
     QSqlDatabase m_db;
 
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName( QDir::homePath() + QDir::separator() + "people.db");
+    m_db.setDatabaseName( "./products.db");
     if (!m_db.open())
     {
        qDebug() << "Error: connection with database fail";
     }
     else
     {
-        qDebug() << QDir::homePath() + QDir::separator() + "people.db";
+       qDebug() << "./products.db";
        qDebug() << "Database: connection ok";
     }
 
@@ -80,10 +80,13 @@ int main(int argc, char *argv[])
     for (vector<Availability>::iterator iter = products.begin(); iter != products.end(); iter++) {
         ProductBase product = iter->getProduct();
 
-        fprintf(stdout, "Product serial: %d\n", product.getSerial());
-        fprintf(stdout, "Product description: %s\n", product.getDescription());
-        w.setLabel(product.getDescription());
-//        fprintf(stdout, "Product model: %s\n", product.getModel());
+        cout << "Product serial: " << product.getSerial() << endl;
+        cout << "Product price: " << product.getPrice() << endl;
+        cout << "Product model: " << product.getModel() << endl;
+        cout << "Product manufacturer: " << product.getManufacturer() << endl;
+        cout << "Product description: " << product.getDescription() << endl;
+
+//                fprintf(stdout, "Product model: %s\n", product.getModel());
 //        fprintf(stdout, "Product manufacturer: %s\n", product.getManufacturer());
 //        fprintf(stdout, "Product price: %f\n", product.getPrice());
     }

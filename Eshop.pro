@@ -51,7 +51,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
     customerpanel.ui
-QMAKE_LFLAGS += /INCREMENTAL:NO
 QT += sql
 
 DISTFILES += \

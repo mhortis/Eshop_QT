@@ -7,8 +7,8 @@ ProductDAO::ProductDAO(QSqlDatabase database) {
 
 int ProductDAO::insertProductInDB(PC product, int availability) {
     if (!db.open()) {
-		fprintf(stderr, "Invalid or unset database.");
-		return 0;
+        qDebug() << "Invalid or unset database.";
+        return 0;
 	}
 
     QSqlQuery query;
@@ -34,14 +34,14 @@ int ProductDAO::insertProductInDB(PC product, int availability) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new PC. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new PC. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::insertProductInDB(Smartphone product, int availability) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -66,14 +66,14 @@ int ProductDAO::insertProductInDB(Smartphone product, int availability) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new Smartphone. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new Smartphone. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::insertProductInDB(TV product, int availability) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -96,14 +96,14 @@ int ProductDAO::insertProductInDB(TV product, int availability) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in insertion of new TV. Error code: %d\n", query.lastError());
+        qDebug() << "Error in insertion of new TV. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::updateProductInDB(PC updatedProduct) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -128,14 +128,14 @@ int ProductDAO::updateProductInDB(PC updatedProduct) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in update of PC. Error code: %d\n", query.lastError());
+        qDebug() << "Error in update of PC. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::updateProductInDB(Smartphone updatedProduct) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -159,14 +159,14 @@ int ProductDAO::updateProductInDB(Smartphone updatedProduct) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in update of Smartphone. Error code: %d\n", query.lastError());
+        qDebug() << "Error in update of Smartphone. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::updateProductInDB(TV updatedProduct) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -189,14 +189,14 @@ int ProductDAO::updateProductInDB(TV updatedProduct) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in update of TV. Error code: %d\n", query.lastError());
+        qDebug() << "Error in update of TV. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::updateProductItemsInDB(int serial, int availability) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -211,14 +211,14 @@ int ProductDAO::updateProductItemsInDB(int serial, int availability) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in update of product. Error code: %d\n", query.lastError());
+        qDebug() << "Error in update of product. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 int ProductDAO::removeProductFromDB(int serial) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -232,7 +232,7 @@ int ProductDAO::removeProductFromDB(int serial) {
         return true;
     }
     else{
-        fprintf(stderr, "Error in removal of product. Error code: %d\n", query.lastError());
+        qDebug() << "Error in removal of product. Error code: " << query.lastError() << endl;
         return false;
     }
 }
@@ -255,7 +255,7 @@ int ProductDAO::addProductItemsInDB(int serial, int addedItems) {
 
 int ProductDAO::getProductAvailabilityFromDB(int serial) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         return 0;
     }
 
@@ -272,19 +272,19 @@ int ProductDAO::getProductAvailabilityFromDB(int serial) {
             return availability;
         }
         else{
-            fprintf(stderr, "No product found for availability. Error code: %d\n", query.lastError());
+            qDebug() << "No product found for availability. Error code: " << query.lastError() << endl;
             return false;
         }
     }
     else{
-        fprintf(stderr, "Error in getting product availability. Error code: %d\n", query.lastError());
+        qDebug() << "Error in getting product availability. Error code: " << query.lastError() << endl;
         return false;
     }
 }
 
 Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         Availability avail;
         return avail;
     }
@@ -299,6 +299,7 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
             if(query.value(query.record().indexOf("TYPE")) == 0){
                 PC fetchedProduct = PC();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -315,6 +316,7 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
             else if(query.value(query.record().indexOf("TYPE")) == 1){
                 Smartphone fetchedProduct = Smartphone();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -329,6 +331,7 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
             else {
                 TV fetchedProduct = TV();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -341,14 +344,14 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
             }
         }
         else{
-            fprintf(stderr, "Error in fetching product by serial. Error code: %d\n", query.lastError());
+            qDebug() << "Error in fetching product by serial. Error code: " << query.lastError() << endl;
             Availability avail;
             return avail;
 
         }
     }
     else{
-        fprintf(stderr, "Error in fetching product by serial. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching product by serial. Error code: " << query.lastError() << endl;
         Availability avail;
         return avail;
     }
@@ -356,7 +359,7 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
 
 vector<Availability> ProductDAO::fetchAllProductsFromDB() {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         vector<Availability> avail;
         return avail;
     }
@@ -371,6 +374,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
             if(query.value(query.record().indexOf("TYPE")) == 0){
                 PC fetchedProduct = PC();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -387,6 +391,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
             else if(query.value(query.record().indexOf("TYPE")) == 1){
                 Smartphone fetchedProduct = Smartphone();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -401,6 +406,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
             else if(query.value(query.record().indexOf("TYPE")) == 2){
                 TV fetchedProduct = TV();
                 fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
                 fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
                 fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
                 fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -414,7 +420,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
         }
     }
     else{
-        fprintf(stderr, "Error in fetching products from database. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching products from database. Error code: " << query.lastError() << endl;
         vector<Availability> avail;
         return avail;
     }
@@ -424,7 +430,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
 
 vector<Availability> ProductDAO::fetchAllPCsFromDB() {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         vector<Availability> avail;
         return avail;
     }
@@ -438,6 +444,7 @@ vector<Availability> ProductDAO::fetchAllPCsFromDB() {
         while(query.next()){
             PC fetchedProduct = PC();
             fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+            fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
             fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
             fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
             fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -453,7 +460,7 @@ vector<Availability> ProductDAO::fetchAllPCsFromDB() {
         }
     }
     else{
-        fprintf(stderr, "Error in fetching PCs from database. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching PCs from database. Error code: " << query.lastError() << endl;
         vector<Availability> avail;
         return avail;
     }
@@ -463,7 +470,7 @@ vector<Availability> ProductDAO::fetchAllPCsFromDB() {
 
 vector<Availability> ProductDAO::fetchAllSmartphonesFromDB() {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         vector<Availability> avail;
         return avail;
     }
@@ -477,6 +484,7 @@ vector<Availability> ProductDAO::fetchAllSmartphonesFromDB() {
         while(query.next()){
             Smartphone fetchedProduct = Smartphone();
             fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+            fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
             fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
             fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
             fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -490,7 +498,7 @@ vector<Availability> ProductDAO::fetchAllSmartphonesFromDB() {
         }
     }
     else{
-        fprintf(stderr, "Error in fetching Smartphones from database. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching Smartphones from database. Error code: " << query.lastError() << endl;
         vector<Availability> avail;
         return avail;
     }
@@ -499,7 +507,7 @@ vector<Availability> ProductDAO::fetchAllSmartphonesFromDB() {
 
 vector<Availability> ProductDAO::fetchAllTVsFromDB() {
     if (!db.open()) {
-        fprintf(stderr, "Invalid or unset database.");
+        qDebug() << "Invalid or unset database.";
         vector<Availability> avail;
         return avail;
     }
@@ -513,6 +521,7 @@ vector<Availability> ProductDAO::fetchAllTVsFromDB() {
         while(query.next()){
             TV fetchedProduct = TV();
             fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+            fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
             fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
             fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
             fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
@@ -525,7 +534,7 @@ vector<Availability> ProductDAO::fetchAllTVsFromDB() {
         }
     }
     else{
-        fprintf(stderr, "Error in fetching TVs from database. Error code: %d\n", query.lastError());
+        qDebug() << "Error in fetching TVs from database. Error code: " << query.lastError() << endl;
         vector<Availability> avail;
         return avail;
     }

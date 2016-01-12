@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include "stdafx.h"
 #include <string>
+#include "QtSql/QtSql"
+#include <QString>
+#include <QTDebug>
+#include <QFileInfo>
+
 namespace Ui {
 class MainWindow;
 }

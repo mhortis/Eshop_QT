@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName( QDir::homePath() + QDir::separator() + "people.db");
     //db.setDatabaseName=("eshop_db");
 
     if(!db.open()){

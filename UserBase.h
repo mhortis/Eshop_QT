@@ -9,8 +9,8 @@ public:
     string getUsername();
     string getPassword();
 	void setUserID(int userID);
-    void setUsername(const char* username);
-    void setPassword(const char* password);
+    void setUsername(string username);
+    void setPassword(string password);
 private:
 	int userID;
     string username;

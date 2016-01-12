@@ -9,9 +9,9 @@ public:
     string getName();
     string getSurname();
     string getIdentity();
-    void setName(const char* name);
-    void setSurname(const char* surname);
-    void setIdentity(const char* identity);
+    void setName(string name);
+    void setSurname(string surname);
+    void setIdentity(string identity);
 	Order placeOrder();
 private:
     string name;

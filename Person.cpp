@@ -17,16 +17,16 @@ string Person::getIdentity() {
 	return this->identity;
 }
 
-void Person::setName(const char* name) {
-    this->name = string(name);
+void Person::setName(string name) {
+    this->name = name;
 }
 
-void Person::setSurname(const char* surname) {
-    this->surname = string(surname);
+void Person::setSurname(string surname) {
+    this->surname = surname;
 }
 
-void Person::setIdentity(const char* identity) {
-    this->identity = string(identity);
+void Person::setIdentity(string identity) {
+    this->identity = identity;
 }
 
 Order Person::placeOrder()

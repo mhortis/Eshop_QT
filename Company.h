@@ -11,11 +11,11 @@ public:
     string getResponsibleSurname();
 	double getDiscount();
     string getFax();
-    void setCompanyName(const char* companyName);
-    void setResponsibleName(const char* responsibleName);
-    void setResponsibleSurname(const char* responsibleSurname);
+    void setCompanyName(string companyName);
+    void setResponsibleName(string responsibleName);
+    void setResponsibleSurname(string responsibleSurname);
 	void setDiscount(double discount);
-    void setFax(const char* fax);
+    void setFax(string fax);
 	Order placeOrder();
 private:
     string companyName;
