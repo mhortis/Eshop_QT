@@ -12,10 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-    //m_db.setDatabaseName( QDir::homePath() + QDir::separator() + "eshop.db");
-    m_db.setDatabaseName( "./eshop.db");
+    m_db.setDatabaseName( QDir::homePath() + QDir::separator() + "eshop.db");
+    //m_db.setDatabaseName( "./eshop.db");
 
     if(!m_db.open()){
         ui->statusLabel->setText("Failed to open the database");
