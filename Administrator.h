@@ -3,7 +3,7 @@
 
 class Administrator : public UserBase{
 public:
-    Administrator(string username, string password);
+    Administrator(const char* username, const char* password);
+    int getType();
 private:
-
 };

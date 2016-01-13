@@ -357,6 +357,145 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
     }
 }
 
+PC ProductDAO::fetchPCDetailsFromDB(int serial){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        PC pc;
+        return pc;
+    }
+
+    QSqlQuery query;
+
+    query.prepare("SELECT * from products where SERIAL=?");
+    query.addBindValue(serial);
+
+    if(query.exec()){
+        if(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 0){
+                PC fetchedProduct = PC();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setRam(query.value(query.record().indexOf("RAM")).toInt());
+                fetchedProduct.setCpu(query.value(query.record().indexOf("CPU")).toDouble());
+                fetchedProduct.setDiskType(query.value(query.record().indexOf("DISKTYPE")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDiskSpace(query.value(query.record().indexOf("DISKSPACE")).toInt());
+                fetchedProduct.setGpu(query.value(query.record().indexOf("GPU")).toString().toLocal8Bit().constData());
+                return fetchedProduct;
+            }
+            else {
+                qDebug() << "Error in fetching PC details by serial. This is not a PC. Error code: " << query.lastError() << endl;
+                PC pc;
+                return pc;
+            }
+        }
+        else{
+            qDebug() << "Error in fetching PC by serial. Error code: " << query.lastError() << endl;
+            PC pc;
+            return pc;
+        }
+    }
+    else{
+        qDebug() << "Error in fetching PC by serial. Error code: " << query.lastError() << endl;
+        PC pc;
+        return pc;
+    }
+}
+
+Smartphone ProductDAO::fetchSmartphoneDetailsFromDB(int serial){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        Smartphone smartphone;
+        return smartphone;
+    }
+
+    QSqlQuery query;
+
+    query.prepare("SELECT * from products where SERIAL=?");
+    query.addBindValue(serial);
+
+    if(query.exec()){
+        if(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 1){
+                Smartphone fetchedProduct = Smartphone();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setScreenSize(query.value(query.record().indexOf("SCREENSIZE")).toDouble());
+                fetchedProduct.setBatteryLife(query.value(query.record().indexOf("BATTERYLIFE")).toInt());
+                fetchedProduct.setCanRecord4k(query.value(query.record().indexOf("CANRECORD4K")).toBool());
+                return fetchedProduct;
+            }
+            else {
+                qDebug() << "Error in fetching Smartphone details by serial. This is not a Smartphone. Error code: " << query.lastError() << endl;
+                Smartphone smartphone;
+                return smartphone;
+            }
+        }
+        else{
+            qDebug() << "Error in fetching Smartphone by serial. Error code: " << query.lastError() << endl;
+            Smartphone smartphone;
+            return smartphone;
+        }
+    }
+    else{
+        qDebug() << "Error in fetching Smartphone by serial. Error code: " << query.lastError() << endl;
+        Smartphone smartphone;
+        return smartphone;
+    }
+}
+
+TV ProductDAO::fetchTVDetailsFromDB(int serial){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        TV tv;
+        return tv;
+    }
+
+    QSqlQuery query;
+
+    query.prepare("SELECT * from products where SERIAL=?");
+    query.addBindValue(serial);
+
+    if(query.exec()){
+        if(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 2){
+                TV fetchedProduct = TV();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setScreenSize(query.value(query.record().indexOf("SCREENSIZE")).toDouble());
+                fetchedProduct.setCanShow3d(query.value(query.record().indexOf("CANSHOW3D")).toBool());
+                return fetchedProduct;
+            }
+            else {
+                qDebug() << "Error in fetching TV details by serial. This is not a TV. Error code: " << query.lastError() << endl;
+                TV tv;
+                return tv;
+            }
+        }
+        else{
+            qDebug() << "Error in fetching TV by serial. Error code: " << query.lastError() << endl;
+            TV tv;
+            return tv;
+        }
+    }
+    else{
+        qDebug() << "Error in fetching TV by serial. Error code: " << query.lastError() << endl;
+        TV tv;
+        return tv;
+    }
+}
+
 vector<Availability> ProductDAO::fetchAllProductsFromDB() {
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";
@@ -364,7 +503,7 @@ vector<Availability> ProductDAO::fetchAllProductsFromDB() {
         return avail;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector <Availability> products;
 
     query.prepare("SELECT * from products;");

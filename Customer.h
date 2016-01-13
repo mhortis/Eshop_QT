@@ -6,14 +6,14 @@ class Customer : public UserBase
 {
 public:
 	Customer();
-    Customer(string username, string password);
+    Customer(const char* username, const char* password);
     string getAfm();
     string getPhoneNumber();
     string getAddress();
-    void setAfm(string afm);
-    void setPhoneNumber(string phoneNumber);
-    void setAddress(string address);
-	void addProductToCart(ProductBase product, int quantity);
+    void setAfm(const char* afm);
+    void setPhoneNumber(const char* phoneNumber);
+    void setAddress(const char* address);
+    void addProductToCart(ProductBase product, int quantity);
 	void updateProductItemsInCart(ProductBase product, int newQuantity);
 	void removeProductFromCart(ProductBase product);
 private:
@@ -22,4 +22,3 @@ private:
     string address;
 	map<ProductBase, int> cart;
 };
-

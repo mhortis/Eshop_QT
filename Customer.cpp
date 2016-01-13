@@ -4,7 +4,7 @@
 Customer::Customer() {
 }
 
-Customer::Customer(string username, string password) : UserBase(username, password) {
+Customer::Customer(const char* username, const char* password) : UserBase(username, password) {
 }
 
 string Customer::getAfm() {
@@ -19,16 +19,16 @@ string Customer::getAddress() {
 	return this->address;
 }
 
-void Customer::setAfm(string afm) {
-    this->afm = afm;
+void Customer::setAfm(const char* afm) {
+    this->afm = string(afm);
 }
 
-void Customer::setPhoneNumber(string phoneNumber) {
-    this->phoneNumber = phoneNumber;
+void Customer::setPhoneNumber(const char* phoneNumber) {
+    this->phoneNumber = string(phoneNumber);
 }
 
-void Customer::setAddress(string address) {
-    this->address = address;
+void Customer::setAddress(const char* address) {
+    this->address = string(address);
 }
 
 void Customer::addProductToCart(ProductBase product, int quantity) {

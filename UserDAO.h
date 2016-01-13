@@ -16,10 +16,11 @@ public:
 	int insertAdminInDB(Administrator admin);
 	int removeUserFromDB(int userID);
 	UserBase fetchUserByIDFromDB(int userID);
+    Person fetchPersonDetailsFromDB(int userID);
+    Company fetchCompanyDetailsFromDB(int companyID);
 	vector<UserBase> fetchUsersFromDB();
-	vector<Customer> fetchCustomersFromDB();
-	vector<Person> fetchPersonsFromDB();
-	vector<Company> fetchCompanyFromDB();
+    vector<Person> fetchPersonsFromDB();
+    vector<Company> fetchCompaniesFromDB();
 	vector<Administrator> fetchAdminsFromDB();
 
 private:

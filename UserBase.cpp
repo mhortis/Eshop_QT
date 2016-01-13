@@ -4,9 +4,9 @@
 UserBase::UserBase() {
 }
 
-UserBase::UserBase(string username, string password) {
-	this->username = username;
-	this->password = password;
+UserBase::UserBase(const char* username, const char* password) {
+    this->username = string(username);
+    this->password = string(password);
 }
 
 int UserBase::getUserID() {
@@ -25,10 +25,14 @@ void UserBase::setUserID(int userID) {
 	this->userID = userID;
 }
 
-void UserBase::setUsername(string username) {
-    this->username = username;
+void UserBase::setType(int type){
+    this->type = type;
 }
 
-void UserBase::setPassword(string password) {
-    this->password = password;
+void UserBase::setUsername(const char* username) {
+    this->username = string(username);
+}
+
+void UserBase::setPassword(const char* password) {
+    this->password = string(password);
 }

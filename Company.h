@@ -5,17 +5,19 @@
 class Company : public Customer
 {
 public:
-    Company(string username, string password);
+    Company();
+    Company(const char* username, const char* password);
+    int getType();
     string getCompanyName();
     string getResponsibleName();
     string getResponsibleSurname();
 	double getDiscount();
     string getFax();
-    void setCompanyName(string companyName);
-    void setResponsibleName(string responsibleName);
-    void setResponsibleSurname(string responsibleSurname);
+    void setCompanyName(const char* companyName);
+    void setResponsibleName(const char* responsibleName);
+    void setResponsibleSurname(const char* responsibleSurname);
 	void setDiscount(double discount);
-    void setFax(string fax);
+    void setFax(const char* fax);
 	Order placeOrder();
 private:
     string companyName;

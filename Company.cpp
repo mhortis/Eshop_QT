@@ -1,9 +1,16 @@
 #include "stdafx.h"
 #include "Company.h"
 
-Company::Company(string username, string password) : Customer(username, password) {
+Company::Company(){
 }
 
+Company::Company(const char* username, const char* password) : Customer(username, password) {
+    setType(2);
+}
+
+int Company::getType(){
+    return 2;
+}
 string Company::getCompanyName()
 {
 	return this->companyName;
@@ -29,19 +36,19 @@ string Company::getFax()
 	return this->fax;
 }
 
-void Company::setCompanyName(string companyName)
+void Company::setCompanyName(const char* companyName)
 {
-    this->companyName = companyName;
+    this->companyName = string(companyName);
 }
 
-void Company::setResponsibleName(string responsibleName)
+void Company::setResponsibleName(const char* responsibleName)
 {
-    this->responsibleName = responsibleName;
+    this->responsibleName = string(responsibleName);
 }
 
-void Company::setResponsibleSurname(string responsibleSurname)
+void Company::setResponsibleSurname(const char* responsibleSurname)
 {
-    this->responsibleSurname = responsibleSurname;
+    this->responsibleSurname = string(responsibleSurname);
 }
 
 void Company::setDiscount(double discount)
@@ -49,9 +56,9 @@ void Company::setDiscount(double discount)
 	this->discount = discount;
 }
 
-void Company::setFax(string fax)
+void Company::setFax(const char* fax)
 {
-    this->fax = fax;
+    this->fax = string(fax);
 }
 
 Order Company::placeOrder()

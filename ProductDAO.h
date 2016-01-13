@@ -23,7 +23,10 @@ public:
 	int addProductItemsInDB(int serial, int addedItems);
 	int getProductAvailabilityFromDB(int serial);
 	Availability fetchProductBySerialFromDB(int serial);
-	vector<Availability> fetchProductsByManufacturer(string manufacturer);
+    PC fetchPCDetailsFromDB(int serial);
+    Smartphone fetchSmartphoneDetailsFromDB(int serial);
+    TV fetchTVDetailsFromDB(int serial);
+    vector<Availability> fetchProductsByManufacturer(string manufacturer);
 	vector<Availability> fetchProductsByType(int type);
 	vector<Availability> fetchAllProductsFromDB();
 	vector<Availability> fetchAllPCsFromDB();

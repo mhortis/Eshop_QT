@@ -1,8 +1,15 @@
 #include "stdafx.h"
 #include "Person.h"
 
+Person::Person(){
+}
 
-Person::Person(string username, string password) : Customer(username, password) {
+Person::Person(const char* username, const char* password) : Customer(username, password) {
+    setType(1);
+}
+
+int Person::getType(){
+    return 1;
 }
 
 string Person::getName() {
@@ -17,16 +24,16 @@ string Person::getIdentity() {
 	return this->identity;
 }
 
-void Person::setName(string name) {
-    this->name = name;
+void Person::setName(const char* name) {
+    this->name = string(name);
 }
 
-void Person::setSurname(string surname) {
-    this->surname = surname;
+void Person::setSurname(const char* surname) {
+    this->surname = string(surname);
 }
 
-void Person::setIdentity(string identity) {
-    this->identity = identity;
+void Person::setIdentity(const char* identity) {
+    this->identity = string(identity);
 }
 
 Order Person::placeOrder()
