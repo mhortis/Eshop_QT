@@ -14,7 +14,7 @@ int UserDAO::insertAdminInDB(Administrator admin) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into users (TYPE, USERNAME, PASSWORD)" \
         "values(0, ?, ?);");
@@ -36,7 +36,7 @@ int UserDAO::insertPersonInDB(Person cust) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into users (TYPE, USERNAME, PASSWORD, AFM, PHONE, ADDRESS, " \
 		"NAME, SURNAME, IDENTITY)" \
@@ -65,7 +65,7 @@ int UserDAO::insertCompanyInDB(Company cust) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into users (TYPE, USERNAME, PASSWORD, AFM, PHONE, ADDRESS, " \
 		"COMPANY_NAME, RESPONSIBLE_NAME, RESPONSIBLE_SURNAME, DISCOUNT, FAX)" \
@@ -96,7 +96,7 @@ int UserDAO::removeUserFromDB(int userID) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("delete from products where ID = ?");
 
@@ -111,6 +111,34 @@ int UserDAO::removeUserFromDB(int userID) {
     }
 }
 
+int UserDAO::userExistsInDB(string username, string password){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        return -1;
+    }
+
+    QSqlQuery query(db);
+
+    query.prepare("SELECT count(*) from users where USERNAME=? AND PASSWORD=?");
+    query.addBindValue(username.c_str());
+    query.addBindValue(password.c_str());
+
+    if(query.exec()){
+        if(query.next()){
+            int count = query.value(0).toInt();
+            return count;
+        }
+        else{
+            qDebug() << "Error in fetching count of users. Error code: " << query.lastError() << endl;
+            return -1;
+        }
+    }
+    else{
+        qDebug() << "Error in fetching count of users. Error code: " << query.lastError() << endl;
+        return -1;
+    }
+}
+
 UserBase UserDAO::fetchUserByIDFromDB(int userID) {
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";
@@ -118,7 +146,7 @@ UserBase UserDAO::fetchUserByIDFromDB(int userID) {
         return user;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from users where ID=?");
     query.addBindValue(userID);
@@ -171,6 +199,67 @@ UserBase UserDAO::fetchUserByIDFromDB(int userID) {
     }
 }
 
+UserBase UserDAO::fetchUserByUsernamePwdFromDB(string username, string password) {
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        UserBase user;
+        return user;
+    }
+
+    QSqlQuery query(db);
+
+    query.prepare("SELECT * from users where USERNAME=? AND PASSWORD=?");
+    query.addBindValue(username.c_str());
+    query.addBindValue(password.c_str());
+
+    if(query.exec()){
+        if(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 0){
+                Administrator admin = Administrator(query.value(query.record().indexOf("USERNAME")).toString().toLocal8Bit().constData(),
+                                                    query.value(query.record().indexOf("PASSWORD")).toString().toLocal8Bit().constData());
+                admin.setUserID(query.value(query.record().indexOf("ID")).toInt());
+                return admin;
+            }
+            else if(query.value(query.record().indexOf("TYPE")) == 1){
+                Person person = Person(query.value(query.record().indexOf("USERNAME")).toString().toLocal8Bit().constData(),
+                        query.value(query.record().indexOf("PASSWORD")).toString().toLocal8Bit().constData());
+                person.setUserID(query.value(query.record().indexOf("ID")).toInt());
+                person.setAfm(query.value(query.record().indexOf("AFM")).toString().toLocal8Bit().constData());
+                person.setPhoneNumber(query.value(query.record().indexOf("PHONE")).toString().toLocal8Bit().constData());
+                person.setAddress(query.value(query.record().indexOf("ADDRESS")).toString().toLocal8Bit().constData());
+                person.setName(query.value(query.record().indexOf("NAME")).toString().toLocal8Bit().constData());
+                person.setSurname(query.value(query.record().indexOf("SURNAME")).toString().toLocal8Bit().constData());
+                person.setIdentity(query.value(query.record().indexOf("IDENTITY")).toString().toLocal8Bit().constData());
+                return person;
+            }
+            else{
+                Company company = Company(query.value(query.record().indexOf("USERNAME")).toString().toLocal8Bit().constData(),
+                                          query.value(query.record().indexOf("PASSWORD")).toString().toLocal8Bit().constData());
+                company.setUserID(query.value(query.record().indexOf("ID")).toInt());
+                company.setAfm(query.value(query.record().indexOf("AFM")).toString().toLocal8Bit().constData());
+                company.setPhoneNumber(query.value(query.record().indexOf("PHONE")).toString().toLocal8Bit().constData());
+                company.setAddress(query.value(query.record().indexOf("ADDRESS")).toString().toLocal8Bit().constData());
+                company.setCompanyName(query.value(query.record().indexOf("COMPANY_NAME")).toString().toLocal8Bit().constData());
+                company.setResponsibleName(query.value(query.record().indexOf("RESPONSIBLE_NAME")).toString().toLocal8Bit().constData());
+                company.setResponsibleSurname(query.value(query.record().indexOf("RESPONSIBLE_SURNAME")).toString().toLocal8Bit().constData());
+                company.setDiscount(query.value(query.record().indexOf("DISCOUNT")).toDouble());
+                company.setFax(query.value(query.record().indexOf("FAX")).toString().toLocal8Bit().constData());
+                return company;
+            }
+        }
+        else{
+            qDebug() << "Error in fetching user by username and password. Error code: " << query.lastError() << endl;
+            UserBase user;
+            return user;
+        }
+    }
+    else{
+        qDebug() << "Error in fetching users. Error code: " << query.lastError() << endl;
+        UserBase user;
+        return user;
+    }
+}
+
 Person UserDAO::fetchPersonDetailsFromDB(int userID){
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";
@@ -178,7 +267,7 @@ Person UserDAO::fetchPersonDetailsFromDB(int userID){
         return user;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from users where ID=?");
     query.addBindValue(userID);
@@ -223,7 +312,7 @@ Company UserDAO::fetchCompanyDetailsFromDB(int userID){
         return user;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from users where ID=?");
     query.addBindValue(userID);
@@ -270,7 +359,7 @@ vector<UserBase> UserDAO::fetchUsersFromDB(){
         return users;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector<UserBase> users;
     query.prepare("SELECT * from users");
 
@@ -325,7 +414,7 @@ vector<Administrator> UserDAO::fetchAdminsFromDB(){
         return admins;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector<Administrator> admins;
 
     query.prepare("SELECT * from users where TYPE=0");
@@ -353,7 +442,7 @@ vector<Person> UserDAO::fetchPersonsFromDB(){
         return persons;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector<Person> persons;
 
     query.prepare("SELECT * from users where TYPE=1");
@@ -387,7 +476,7 @@ vector<Company> UserDAO::fetchCompaniesFromDB(){
         return companies;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector<Company> companies;
 
     query.prepare("SELECT * from users where TYPE=2");

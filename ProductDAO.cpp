@@ -11,7 +11,7 @@ int ProductDAO::insertProductInDB(PC product, int availability) {
         return 0;
 	}
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into products (TYPE, PRICE, MODEL, MANUFACTURER, " \
 		"PHOTOURL, DESCRIPTION, RAM, CPU, DISKTYPE, DISKSPACE, GPU, " \
@@ -45,7 +45,7 @@ int ProductDAO::insertProductInDB(Smartphone product, int availability) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into products (TYPE, PRICE, MODEL, MANUFACTURER, " \
 		"PHOTOURL, DESCRIPTION, SCREENSIZE, BATTERYLIFE, CANRECORD4K, " \
@@ -77,7 +77,7 @@ int ProductDAO::insertProductInDB(TV product, int availability) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("insert into products (TYPE, PRICE, MODEL, MANUFACTURER, " \
 		"PHOTOURL, DESCRIPTION, SCREENSIZE, CANSHOW3D, AVAILABILITY)" \
@@ -107,7 +107,7 @@ int ProductDAO::updateProductInDB(PC updatedProduct) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("update products set PRICE = ?, MODEL = ?, " \
 		"MANUFACTURER = ?, PHOTOURL = ?, DESCRIPTION = ?, RAM = ?, CPU = ?, " \
@@ -139,7 +139,7 @@ int ProductDAO::updateProductInDB(Smartphone updatedProduct) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("update products set PRICE = ?, MODEL = ?, " \
 		"MANUFACTURER = ?, PHOTOURL = ?, DESCRIPTION = ?, SCREENSIZE = ?, " \
@@ -170,7 +170,7 @@ int ProductDAO::updateProductInDB(TV updatedProduct) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("update products set PRICE = ?, MODEL = ?, " \
 		"MANUFACTURER = ?, PHOTOURL = ?, DESCRIPTION = ?, " \
@@ -200,7 +200,7 @@ int ProductDAO::updateProductItemsInDB(int serial, int availability) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("update in products set AVAILABILITY = ? where SERIAL = ?");
 
@@ -222,7 +222,7 @@ int ProductDAO::removeProductFromDB(int serial) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("delete from products where SERIAL = ?");
 
@@ -259,7 +259,7 @@ int ProductDAO::getProductAvailabilityFromDB(int serial) {
         return 0;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("select AVAILABILITY from products where SERIAL = ?");
 
@@ -289,7 +289,7 @@ Availability ProductDAO::fetchProductBySerialFromDB(int serial) {
         return avail;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from products where SERIAL=?");
     query.addBindValue(serial);
@@ -364,7 +364,7 @@ PC ProductDAO::fetchPCDetailsFromDB(int serial){
         return pc;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from products where SERIAL=?");
     query.addBindValue(serial);
@@ -412,7 +412,7 @@ Smartphone ProductDAO::fetchSmartphoneDetailsFromDB(int serial){
         return smartphone;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from products where SERIAL=?");
     query.addBindValue(serial);
@@ -458,7 +458,7 @@ TV ProductDAO::fetchTVDetailsFromDB(int serial){
         return tv;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
 
     query.prepare("SELECT * from products where SERIAL=?");
     query.addBindValue(serial);
@@ -574,7 +574,7 @@ vector<Availability> ProductDAO::fetchAllPCsFromDB() {
         return avail;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector <Availability> products;
 
     query.prepare("SELECT * from products where TYPE=0");
@@ -614,7 +614,7 @@ vector<Availability> ProductDAO::fetchAllSmartphonesFromDB() {
         return avail;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector <Availability> products;
 
     query.prepare("SELECT * from products where TYPE=1");
@@ -651,7 +651,7 @@ vector<Availability> ProductDAO::fetchAllTVsFromDB() {
         return avail;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(db);
     vector <Availability> products;
 
     query.prepare("SELECT * from products where TYPE=2");

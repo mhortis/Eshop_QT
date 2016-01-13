@@ -8,6 +8,8 @@
 #include <QString>
 #include <QTDebug>
 #include <QFileInfo>
+#include "UserDAO.h"
+
 
 namespace Ui {
 class MainWindow;

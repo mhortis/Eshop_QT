@@ -15,7 +15,9 @@ public:
 	int insertCompanyInDB(Company comp);
 	int insertAdminInDB(Administrator admin);
 	int removeUserFromDB(int userID);
+    int userExistsInDB(string username, string password);
 	UserBase fetchUserByIDFromDB(int userID);
+    UserBase fetchUserByUsernamePwdFromDB(string username, string password);
     Person fetchPersonDetailsFromDB(int userID);
     Company fetchCompanyDetailsFromDB(int companyID);
 	vector<UserBase> fetchUsersFromDB();
