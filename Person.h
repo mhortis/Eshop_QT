@@ -14,7 +14,6 @@ public:
     void setName(const char* name);
     void setSurname(const char* surname);
     void setIdentity(const char* identity);
-	Order placeOrder();
 private:
     string name;
     string surname;

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Order.h"
-#include <cstring>
-char* Order::getOrderNumber() {
+
+int Order::getOrderNumber() {
 	return this->orderNumber;
 }
 
@@ -17,13 +17,12 @@ double Order::getOrderCost() {
 	return this->orderCost;
 }
 
-char* Order::getOrderStatus() {
+string Order::getOrderStatus() {
 	return this->orderStatus;
 }
 
-void Order::setOrderNumber(char* orderNumber) {
-    this->orderNumber = new char[strlen(orderNumber) + 1];
-	strcpy(this->orderNumber, orderNumber);
+void Order::setOrderNumber(int orderNumber) {
+    this->orderNumber = orderNumber;
 }
 
 void Order::setOrderBuyer(Customer orderBuyer) {
@@ -38,7 +37,6 @@ void Order::setOrderCost(double orderCost) {
 	this->orderCost = orderCost;
 }
 
-void Order::setOrderStatus(char* orderStatus) {
-	this->orderStatus = new char[strlen(orderStatus) + 1];
-	strcpy(this->orderStatus, orderStatus);
+void Order::setOrderStatus(const char* orderStatus) {
+    this->orderStatus = string(orderStatus);
 }

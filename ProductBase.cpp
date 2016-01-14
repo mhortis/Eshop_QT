@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ProductBase.h"
-#include <string>
+
 ProductBase::ProductBase() {
 }
 

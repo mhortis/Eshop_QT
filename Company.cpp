@@ -60,9 +60,3 @@ void Company::setFax(const char* fax)
 {
     this->fax = string(fax);
 }
-
-Order Company::placeOrder()
-{
-	return Order();
-}
-

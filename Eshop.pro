@@ -18,6 +18,7 @@ SOURCES += main.cpp\
     Availability.cpp \
     Company.cpp \
     Customer.cpp \
+    OrderDAO.cpp \
     Order.cpp \
     PC.cpp \
     Person.cpp \
@@ -28,13 +29,14 @@ SOURCES += main.cpp\
     UserBase.cpp \
     UserDAO.cpp \
     administratorpanel.cpp \
-    customerpanel.cpp
+    customerpanel.cpp \
 
 HEADERS  += mainwindow.h \
     Administrator.h \
     Availability.h \
     Company.h \
     Customer.h \
+    OrderDAO.h \
     Order.h \
     PC.h \
     Person.h \
@@ -46,7 +48,7 @@ HEADERS  += mainwindow.h \
     UserDAO.h \
     stdafx.h \
     administratorpanel.h \
-    customerpanel.h
+    customerpanel.h \
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \

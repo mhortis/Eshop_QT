@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include "ProductBase.h"
 #include "PC.h"
 #include "Smartphone.h"

@@ -18,7 +18,6 @@ public:
     void setResponsibleSurname(const char* responsibleSurname);
 	void setDiscount(double discount);
     void setFax(const char* fax);
-	Order placeOrder();
 private:
     string companyName;
     string responsibleName;

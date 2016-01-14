@@ -5,20 +5,20 @@
 class Order
 {
 public:
-	char* getOrderNumber();
+    int getOrderNumber();
 	Customer getOrderBuyer();
 	map<ProductBase, int> getOrderItems();
 	double getOrderCost();
-	char* getOrderStatus();
-	void setOrderNumber(char* orderNumber);
-	void setOrderBuyer(Customer orderBuyer);
+    string getOrderStatus();
+    void setOrderNumber(int);
+    void setOrderBuyer(Customer orderBuyer);
 	void setOrderItems(map<ProductBase, int> orderItems);
 	void setOrderCost(double orderCost);
-	void setOrderStatus(char* orderStatus);
+    void setOrderStatus(const char* orderStatus);
 private:
-	char* orderNumber;
+    int orderNumber;
 	Customer orderBuyer;
 	map<ProductBase, int> orderItems;
 	double orderCost;
-	char* orderStatus;
+    string orderStatus;
 };

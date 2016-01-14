@@ -3,6 +3,7 @@
 #include "QtSql/QtSql"
 #include "ProductDAO.h"
 #include "UserDAO.h"
+#include "OrderDAO.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 //    m_db.setDatabaseName( dbPath);
 //    if (!m_db.open())
 //    {
-//        qDebug() << dbPath;
+//       qDebug() << dbPath;
 //       qDebug() << "Error: connection with database fail";
 //    }
 //    else
@@ -28,29 +29,29 @@ int main(int argc, char *argv[])
 
 //    ProductDAO productDao = ProductDAO(m_db);
 
-////    PC product1 = PC();
-////    product1.setPrice(599.99);
-////    product1.setModel("gs60");
-////    product1.setManufacturer("msi");
-////    product1.setPhotoUrl("msi.jpg");
-////    product1.setDescription("laptop msi gs60 2qe 226nl 4k edition 156 intel i7 4720hq 16gb 2x128gb 1tb gtx970m 3gb win 81");
-////    product1.setRam(16);
-////    product1.setCpu(4);
-////    product1.setDiskType("ssd");
-////    product1.setDiskSpace(500);
-////    product1.setGpu("Nvidia GeForce GTX 970M 3 GB GDDR5");
-////    productDao.insertProductInDB(product1, 3);
+//    PC product1 = PC();
+//    product1.setPrice(599.99);
+//    product1.setModel("gs60");
+//    product1.setManufacturer("msi");
+//    product1.setPhotoUrl("msi.jpg");
+//    product1.setDescription("laptop msi gs60 2qe 226nl 4k edition 156 intel i7 4720hq 16gb 2x128gb 1tb gtx970m 3gb win 81");
+//    product1.setRam(16);
+//    product1.setCpu(4);
+//    product1.setDiskType("ssd");
+//    product1.setDiskSpace(500);
+//    product1.setGpu("Nvidia GeForce GTX 970M 3 GB GDDR5");
+//    productDao.insertProductInDB(product1, 3);
 
-////    Smartphone product2 = Smartphone();
-////    product2.setPrice(1400);
-////    product2.setModel("iPhone");
-////    product2.setManufacturer("Apple");
-////    product2.setDescription("This is an Apple iPhone");
-////    product2.setBatteryLife(23);
-////    product2.setCanRecord4k(true);
-////    product2.setScreenSize(5.5);
-////    product2.setPhotoUrl("test");
-////    productDao.insertProductInDB(product2, 14);
+//    Smartphone product2 = Smartphone();
+//    product2.setPrice(1400);
+//    product2.setModel("iPhone");
+//    product2.setManufacturer("Apple");
+//    product2.setDescription("This is an Apple iPhone");
+//    product2.setBatteryLife(23);
+//    product2.setCanRecord4k(true);
+//    product2.setScreenSize(5.5);
+//    product2.setPhotoUrl("test");
+//    productDao.insertProductInDB(product2, 14);
 
 //    vector<Availability> products = productDao.fetchAllProductsFromDB();
 
@@ -79,9 +80,9 @@ int main(int argc, char *argv[])
 //        }
 //        cout << "Availability: " << iter->getQuantity() << endl;
 
-////                fprintf(stdout, "Product model: %s\n", product.getModel());
-////        fprintf(stdout, "Product manufacturer: %s\n", product.getManufacturer());
-////        fprintf(stdout, "Product price: %f\n", product.getPrice());
+//                fprintf(stdout, "Product model: %s\n", product.getModel());
+//        fprintf(stdout, "Product manufacturer: %s\n", product.getManufacturer());
+//        fprintf(stdout, "Product price: %f\n", product.getPrice());
 //    }
 
 //    UserDAO userDao = UserDAO(m_db);
@@ -104,6 +105,20 @@ int main(int argc, char *argv[])
 //            cout << "Admin username: " << iter->getUsername() << endl;
 //            cout << "Admin password: " << iter->getPassword() << endl;
 //        }
+//    }
+
+//    Order order;
+//    OrderDAO orderDAO(m_db);
+
+//    order = orderDAO.fetchOrderByIDFromDB(1);
+//    cout << "Order cost: " << order.getOrderCost() << endl;
+//    cout << "Order status: " << order.getOrderStatus() << endl;
+//    cout << "Order buyer: " << order.getOrderBuyer().getUsername() << endl;
+//    if(order.getOrderBuyer().getType() == 1){
+//        UserDAO userDAO(m_db);
+//        Person person = userDAO.fetchPersonDetailsFromDB(order.getOrderBuyer().getUserID());
+//        cout << person.getName() << endl;
+//        cout << person.getSurname() << endl;
 //    }
 
     return a.exec();

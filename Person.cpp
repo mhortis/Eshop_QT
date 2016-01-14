@@ -35,9 +35,3 @@ void Person::setSurname(const char* surname) {
 void Person::setIdentity(const char* identity) {
     this->identity = string(identity);
 }
-
-Order Person::placeOrder()
-{
-	return Order();
-}
-

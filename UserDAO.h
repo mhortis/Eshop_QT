@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "UserBase.h"
-#include "Customer.h"
 #include "Person.h"
 #include "Company.h"
 #include "Administrator.h"
