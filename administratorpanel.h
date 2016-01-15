@@ -29,6 +29,8 @@ private slots:
 
     void on_actionLogout_triggered();
     int getPanelType();
+    void on_actionAdd_User_triggered();
+
 private:
     Ui::AdministratorPanel *ui;
     int panelType = 1;

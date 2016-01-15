@@ -14,7 +14,7 @@ LogoutDialog::LogoutDialog(int panelType, QWidget *parent) :
     setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Logout from Admin's Panel", "Are you sure you want to logout?",
+    reply = QMessageBox::question(this, "Logout ", "Are you sure you want to logout?",
                                   QMessageBox::Yes|QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       qDebug() << "Logged out";

@@ -32,7 +32,10 @@ SOURCES += main.cpp\
     customerpanel.cpp \
     maindocl.cpp \
     centralwidget.cpp \
-    logoutdialog.cpp
+    logoutdialog.cpp \
+    customerorcompany.cpp \
+    addcompanyform.cpp \
+    addcustomerform.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -54,14 +57,20 @@ HEADERS  += mainwindow.h \
     customerpanel.h \
     maindocl.h \
     centralwidget.h \
-    logoutdialog.h
+    logoutdialog.h \
+    customerorcompany.h \
+    addcompanyform.h \
+    addcustomerform.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
     customerpanel.ui \
     maindocl.ui \
     centralwidget.ui \
-    logoutdialog.ui
+    logoutdialog.ui \
+    customerorcompany.ui \
+    addcompanyform.ui \
+    addcustomerform.ui
 QT += sql
 
 DISTFILES += \
