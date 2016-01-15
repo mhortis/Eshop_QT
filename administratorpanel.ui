@@ -23,11 +23,6 @@
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAdministration">
-    <property name="title">
-     <string>Create User</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuShow">
     <property name="title">
      <string>Eshop Administration</string>
@@ -42,11 +37,14 @@
     </widget>
     <addaction name="actionCustomers"/>
     <addaction name="menuProducts"/>
+    <addaction name="actionAdd_User"/>
+    <addaction name="actionLogout"/>
    </widget>
    <widget class="QMenu" name="menuOperation_Cycle_Calculation">
     <property name="title">
-     <string>Operation Cycle Calculation</string>
+     <string>Operation Cycle</string>
     </property>
+    <addaction name="actionCalculation"/>
    </widget>
    <widget class="QMenu" name="menuOrders">
     <property name="title">
@@ -56,16 +54,9 @@
     <addaction name="actionPrint_Order_per_Product"/>
     <addaction name="actionUpdate_Order_Status"/>
    </widget>
-   <widget class="QMenu" name="menuLogout">
-    <property name="title">
-     <string>Logout</string>
-    </property>
-   </widget>
    <addaction name="menuShow"/>
-   <addaction name="menuAdministration"/>
    <addaction name="menuOrders"/>
    <addaction name="menuOperation_Cycle_Calculation"/>
-   <addaction name="menuLogout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCustomers">
@@ -84,6 +75,9 @@
    </property>
   </action>
   <action name="actionAdd_Remove_Product">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Add Product</string>
    </property>
@@ -111,6 +105,21 @@
   <action name="actionUpdate_Order_Status">
    <property name="text">
     <string>Update Order Status</string>
+   </property>
+  </action>
+  <action name="actionAdd_User">
+   <property name="text">
+    <string>Add User</string>
+   </property>
+  </action>
+  <action name="actionCalculation">
+   <property name="text">
+    <string>Calculation</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
    </property>
   </action>
  </widget>

@@ -2,6 +2,12 @@
 #define ADMINISTRATORPANEL_H
 
 #include <QMainWindow>
+#include <QFormLayout>
+#include <QGroupBox>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QSpinBox>
+#include <QLAbel>
 
 namespace Ui {
 class AdministratorPanel;
@@ -13,10 +19,19 @@ class AdministratorPanel : public QMainWindow
 
 public:
     explicit AdministratorPanel(QWidget *parent = 0);
+    void createAddUserForm();
+    void logout_yes();
+    void logout_no();
     ~AdministratorPanel();
 
+private slots:
+    void on_actionCustomers_triggered();
+
+    void on_actionLogout_triggered();
+    int getPanelType();
 private:
     Ui::AdministratorPanel *ui;
+    int panelType = 1;
 };
 
 #endif // ADMINISTRATORPANEL_H

@@ -33,18 +33,21 @@
    </widget>
    <widget class="QMenu" name="menuLogout">
     <property name="title">
-     <string>Logout</string>
+     <string>User</string>
     </property>
+    <addaction name="actionLogout"/>
    </widget>
    <widget class="QMenu" name="menuPrint_Cart">
     <property name="title">
-     <string>Show Cart</string>
+     <string>Cart</string>
     </property>
+    <addaction name="actionShow_Cart"/>
    </widget>
    <widget class="QMenu" name="menuProducts">
     <property name="title">
      <string>Products</string>
     </property>
+    <addaction name="actionList_Products"/>
    </widget>
    <addaction name="menuProducts"/>
    <addaction name="menuPrint_Cart"/>
@@ -65,6 +68,21 @@
   <action name="actionUpdate_Order_Status">
    <property name="text">
     <string>Update Order Status</string>
+   </property>
+  </action>
+  <action name="actionList_Products">
+   <property name="text">
+    <string>List Products</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
+  <action name="actionShow_Cart">
+   <property name="text">
+    <string>Show Cart</string>
    </property>
   </action>
  </widget>

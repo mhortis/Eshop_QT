@@ -30,6 +30,9 @@ SOURCES += main.cpp\
     UserDAO.cpp \
     administratorpanel.cpp \
     customerpanel.cpp \
+    maindocl.cpp \
+    centralwidget.cpp \
+    logoutdialog.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -49,10 +52,16 @@ HEADERS  += mainwindow.h \
     stdafx.h \
     administratorpanel.h \
     customerpanel.h \
+    maindocl.h \
+    centralwidget.h \
+    logoutdialog.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
-    customerpanel.ui
+    customerpanel.ui \
+    maindocl.ui \
+    centralwidget.ui \
+    logoutdialog.ui
 QT += sql
 
 DISTFILES += \
