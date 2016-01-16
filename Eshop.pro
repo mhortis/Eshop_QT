@@ -35,7 +35,11 @@ SOURCES += main.cpp\
     logoutdialog.cpp \
     customerorcompany.cpp \
     addcompanyform.cpp \
-    addcustomerform.cpp
+    addcustomerform.cpp \
+    tvorsmartphoneorpc.cpp \
+    addtvform.cpp \
+    addpcform.cpp \
+    addsmartphoneform.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -60,7 +64,11 @@ HEADERS  += mainwindow.h \
     logoutdialog.h \
     customerorcompany.h \
     addcompanyform.h \
-    addcustomerform.h
+    addcustomerform.h \
+    tvorsmartphoneorpc.h \
+    addtvform.h \
+    addpcform.h \
+    addsmartphoneform.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -70,7 +78,11 @@ FORMS    += mainwindow.ui \
     logoutdialog.ui \
     customerorcompany.ui \
     addcompanyform.ui \
-    addcustomerform.ui
+    addcustomerform.ui \
+    tvorsmartphoneorpc.ui \
+    addtvform.ui \
+    addpcform.ui \
+    addsmartphoneform.ui
 QT += sql
 
 DISTFILES += \
