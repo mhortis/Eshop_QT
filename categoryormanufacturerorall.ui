@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TvOrSmartphoneOrPc</class>
- <widget class="QDialog" name="TvOrSmartphoneOrPc">
+ <class>CategoryOrManufacturerOrAll</class>
+ <widget class="QDialog" name="CategoryOrManufacturerOrAll">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,22 +11,22 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Please choose the type of Product</string>
+   <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="addSmartphone">
+  <widget class="QPushButton" name="showPerCategory">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>110</y>
+     <y>120</y>
      <width>161</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Add Smartphone</string>
+    <string>Show per Category</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addTV">
+  <widget class="QPushButton" name="showAll">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -36,20 +36,20 @@
     </rect>
    </property>
    <property name="text">
-    <string>Add TV</string>
+    <string>Show All Products</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addPC">
+  <widget class="QPushButton" name="showPerManufacturer">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>200</y>
+     <y>220</y>
      <width>161</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Add PC</string>
+    <string>Show per Manufacturer</string>
    </property>
   </widget>
  </widget>

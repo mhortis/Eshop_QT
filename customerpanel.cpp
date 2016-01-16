@@ -25,3 +25,8 @@ void CustomerPanel::on_actionLogout_triggered()
     LogoutDialog *logout = new LogoutDialog(this->getPanelType());
     logout->show();
 }
+
+void CustomerPanel::on_actionList_Products_triggered()
+{
+
+}

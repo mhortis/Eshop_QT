@@ -40,7 +40,9 @@ SOURCES += main.cpp\
     addtvform.cpp \
     addpcform.cpp \
     addsmartphoneform.cpp \
-    DBConnection.cpp
+    DBConnection.cpp \
+    adminlistproducts.cpp \
+    categoryormanufacturerorall.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -70,7 +72,9 @@ HEADERS  += mainwindow.h \
     addtvform.h \
     addpcform.h \
     addsmartphoneform.h \
-    DBConnection.h
+    DBConnection.h \
+    adminlistproducts.h \
+    categoryormanufacturerorall.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -84,7 +88,9 @@ FORMS    += mainwindow.ui \
     tvorsmartphoneorpc.ui \
     addtvform.ui \
     addpcform.ui \
-    addsmartphoneform.ui
+    addsmartphoneform.ui \
+    adminlistproducts.ui \
+    categoryormanufacturerorall.ui
 QT += sql
 
 DISTFILES += \

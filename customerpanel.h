@@ -19,6 +19,8 @@ public:
 private slots:
     void on_actionLogout_triggered();
     int getPanelType();
+    void on_actionList_Products_triggered();
+
 private:
     Ui::CustomerPanel *ui;
     int panelType = 2;

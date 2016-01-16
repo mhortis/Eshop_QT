@@ -34,6 +34,8 @@ private slots:
 
     void on_actionAdd_Product_triggered();
 
+    void on_actionUpdate_Product_triggered();
+
 private:
     Ui::AdministratorPanel *ui;
     int panelType = 1;
