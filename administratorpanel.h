@@ -32,6 +32,8 @@ private slots:
     int getPanelType();
     void on_actionAdd_User_triggered();
 
+    void on_actionAdd_Product_triggered();
+
 private:
     Ui::AdministratorPanel *ui;
     int panelType = 1;

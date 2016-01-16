@@ -31,8 +31,8 @@
      <property name="title">
       <string>Products</string>
      </property>
-     <addaction name="actionAdd_Remove_Product"/>
-     <addaction name="actionUpdate_Remove_Product"/>
+     <addaction name="actionAdd_Product"/>
+     <addaction name="actionUpdate_Product"/>
      <addaction name="actionRemove_Product"/>
     </widget>
     <addaction name="actionCustomers"/>
@@ -74,7 +74,7 @@
     <string>Create Administrator</string>
    </property>
   </action>
-  <action name="actionAdd_Remove_Product">
+  <action name="actionAdd_Product">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -82,7 +82,7 @@
     <string>Add Product</string>
    </property>
   </action>
-  <action name="actionUpdate_Remove_Product">
+  <action name="actionUpdate_Product">
    <property name="text">
     <string>Update Product</string>
    </property>

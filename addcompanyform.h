@@ -15,6 +15,13 @@ public:
     explicit AddCompanyForm(QWidget *parent = 0);
     ~AddCompanyForm();
 
+private slots:
+
+
+    void on_cancelButton_clicked();
+
+    void on_saveButton_clicked();
+
 private:
     Ui::AddCompanyForm *ui;
 };

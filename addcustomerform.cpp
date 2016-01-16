@@ -1,6 +1,7 @@
 #include "addcustomerform.h"
 #include "ui_addcustomerform.h"
 #include "UserDAO.h"
+#include "mainwindow.h"
 #include <QByteArray>
 
 AddCustomerForm::AddCustomerForm(QWidget *parent) :
@@ -34,7 +35,7 @@ void AddCustomerForm::on_saveButton_clicked()
     username = ui->usernameLineEdit->text().toLatin1();
     password = ui->passowordLineEdit->text().toLatin1();
     //Create a new Customer
-    Person p = Person();
+    Person p = Person(username.constData(),password.constData());
     p.setName(name.constData());
     p.setSurname(surname.constData());
     p.setIdentity(identity.constData());
@@ -44,5 +45,4 @@ void AddCustomerForm::on_saveButton_clicked()
     //Save Customer to db
     UserDAO userDao = UserDAO(m_db);
     userDao.insertPersonInDB(p);
-
 }
