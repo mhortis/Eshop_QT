@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CustomerProductList</class>
+ <widget class="QDialog" name="CustomerProductList">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>644</width>
+    <height>509</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Products</string>
+  </property>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

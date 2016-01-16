@@ -39,22 +39,9 @@ AdminListProducts::AdminListProducts(QWidget *parent) :
     table.resizeRowsToContents();
     table.resizeColumnsToContents();
     table.show();
-
-    ui->tableView->setModel(modal);
+    //modal->
+    //ui->tableView->setModel(modal);
     //ui->tableWidget->show();
-
-
-        /*QStringList labels;
-        for (int i = 0; i < ROW_NUM; ++i) {
-
-            /* Get row's vertical header label */
-            /*
-            labels << QString("%1").arg(data.toInt() + 64);
-            /* Apparently, two lines above can be replaced with one below */
-            // labels << QString("%1").arg(65 + i);
-        //}*/
-        /* Update vertical header labels */
-        //table.setVerticalHeaderLabels(labels);
 }
 
 AdminListProducts::~AdminListProducts()

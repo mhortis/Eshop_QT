@@ -42,7 +42,8 @@ SOURCES += main.cpp\
     addsmartphoneform.cpp \
     DBConnection.cpp \
     adminlistproducts.cpp \
-    categoryormanufacturerorall.cpp
+    categoryormanufacturerorall.cpp \
+    customerproductlist.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -74,7 +75,8 @@ HEADERS  += mainwindow.h \
     addsmartphoneform.h \
     DBConnection.h \
     adminlistproducts.h \
-    categoryormanufacturerorall.h
+    categoryormanufacturerorall.h \
+    customerproductlist.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -90,7 +92,8 @@ FORMS    += mainwindow.ui \
     addpcform.ui \
     addsmartphoneform.ui \
     adminlistproducts.ui \
-    categoryormanufacturerorall.ui
+    categoryormanufacturerorall.ui \
+    customerproductlist.ui
 QT += sql
 
 DISTFILES += \

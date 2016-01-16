@@ -1,6 +1,8 @@
 #include "customerpanel.h"
 #include "ui_customerpanel.h"
 #include "logoutdialog.h"
+#include <QStringList>
+
 CustomerPanel::CustomerPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CustomerPanel)
@@ -28,5 +30,6 @@ void CustomerPanel::on_actionLogout_triggered()
 
 void CustomerPanel::on_actionList_Products_triggered()
 {
+
 
 }
