@@ -679,3 +679,73 @@ vector<Availability> ProductDAO::fetchAllTVsFromDB() {
     }
     return products;
 }
+
+vector<Availability> ProductDAO::fetchProductsByManufacturer(string manufacturer){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        vector<Availability> avail;
+        return avail;
+    }
+
+    QSqlQuery query(db);
+    vector <Availability> products;
+
+    query.prepare("SELECT * from products where MANUFACTURER=?");
+    query.addBindValue(QString::fromStdString(manufacturer));
+    if(query.exec()){
+        while(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 0){
+                PC fetchedProduct = PC();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setRam(query.value(query.record().indexOf("RAM")).toInt());
+                fetchedProduct.setCpu(query.value(query.record().indexOf("CPU")).toDouble());
+                fetchedProduct.setDiskType(query.value(query.record().indexOf("DISKTYPE")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDiskSpace(query.value(query.record().indexOf("DISKSPACE")).toInt());
+                fetchedProduct.setGpu(query.value(query.record().indexOf("GPU")).toString().toLocal8Bit().constData());
+                int availability = query.value(query.record().indexOf("AVAILABILITY")).toInt();
+                Availability avail(fetchedProduct, availability);
+                products.push_back(avail);
+            }
+            else if(query.value(query.record().indexOf("TYPE")) == 1){
+                Smartphone fetchedProduct = Smartphone();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setScreenSize(query.value(query.record().indexOf("SCREENSIZE")).toDouble());
+                fetchedProduct.setBatteryLife(query.value(query.record().indexOf("BATTERYLIFE")).toInt());
+                fetchedProduct.setCanRecord4k(query.value(query.record().indexOf("CANRECORD4K")).toBool());
+                int availability = query.value(query.record().indexOf("AVAILABILITY")).toInt();
+                Availability avail(fetchedProduct, availability);
+                products.push_back(avail);
+            }
+            else if(query.value(query.record().indexOf("TYPE")) == 2){
+                TV fetchedProduct = TV();
+                fetchedProduct.setSerial(query.value(query.record().indexOf("SERIAL")).toInt());
+                fetchedProduct.setPrice(query.value(query.record().indexOf("PRICE")).toDouble());
+                fetchedProduct.setModel(query.value(query.record().indexOf("MODEL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setManufacturer(query.value(query.record().indexOf("MANUFACTURER")).toString().toLocal8Bit().constData());
+                fetchedProduct.setPhotoUrl(query.value(query.record().indexOf("PHOTOURL")).toString().toLocal8Bit().constData());
+                fetchedProduct.setDescription(query.value(query.record().indexOf("DESCRIPTION")).toString().toLocal8Bit().constData());
+                fetchedProduct.setScreenSize(query.value(query.record().indexOf("SCREENSIZE")).toDouble());
+                fetchedProduct.setCanShow3d(query.value(query.record().indexOf("CANSHOW3D")).toBool());
+                int availability = query.value(query.record().indexOf("AVAILABILITY")).toInt();
+                Availability avail(fetchedProduct, availability);
+                products.push_back(avail);
+            }
+        }
+    }
+    else{
+        qDebug() << "Error in fetching product by manufacturer from database. Error code: " << query.lastError() << endl;
+        vector<Availability> avail;
+        return avail;
+    }
+    return products;
+}

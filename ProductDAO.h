@@ -26,7 +26,6 @@ public:
     Smartphone fetchSmartphoneDetailsFromDB(int serial);
     TV fetchTVDetailsFromDB(int serial);
     vector<Availability> fetchProductsByManufacturer(string manufacturer);
-	vector<Availability> fetchProductsByType(int type);
 	vector<Availability> fetchAllProductsFromDB();
 	vector<Availability> fetchAllPCsFromDB();
 	vector<Availability> fetchAllSmartphonesFromDB();

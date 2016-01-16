@@ -69,7 +69,7 @@ int UserDAO::insertCompanyInDB(Company cust) {
 
     query.prepare("insert into users (TYPE, USERNAME, PASSWORD, AFM, PHONE, ADDRESS, " \
 		"COMPANY_NAME, RESPONSIBLE_NAME, RESPONSIBLE_SURNAME, DISCOUNT, FAX)" \
-        "values(?, ?, ?, ?, ?, ?, ?, ?, ?);");
+        "values(2, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
     query.addBindValue(QString::fromStdString(cust.getUsername()));
     query.addBindValue(QString::fromStdString(cust.getPassword()));
     query.addBindValue(QString::fromStdString(cust.getAfm()));
