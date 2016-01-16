@@ -45,4 +45,5 @@ void AddCustomerForm::on_saveButton_clicked()
     //Save Customer to db
     UserDAO userDao = UserDAO(m_db);
     userDao.insertPersonInDB(p);
+    this->hide();
 }

@@ -1,12 +1,14 @@
 #include "addcompanyform.h"
 #include "ui_addcompanyform.h"
 #include "Company.h"
+#include "mainwindow.h"
 
 AddCompanyForm::AddCompanyForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddCompanyForm)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 AddCompanyForm::~AddCompanyForm()
@@ -33,7 +35,7 @@ void AddCompanyForm::on_saveButton_clicked()
     address = ui->addressLineEdit->text().toLatin1();
     username = ui->usernameLineEdit->text().toLatin1();
     password = ui->passwordLineEdit->text().toLatin1();
-    //Create a new Customer
+    //Create a new Company
     Company c= Company(username.constData(),password.constData());
     c.setCompanyName(cname.constData());
     c.setResponsibleName(rname.constData());
@@ -43,8 +45,9 @@ void AddCompanyForm::on_saveButton_clicked()
     c.setAfm(afm.constData());
     c.setPhoneNumber(phone.constData());
     c.setAddress(address.constData());
-    //Save Customer to db
-    //UserDAO userDao = UserDAO(m_db);
-    //userDao.insertPersonInDB(p);
+    //Save Company to db
+    UserDAO userDao = UserDAO(m_db);
+    userDao.insertCompanyInDB(c);
+    this->hide();
 }
 

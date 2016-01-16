@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>416</width>
-    <height>364</height>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>320</y>
+     <x>20</x>
+     <y>340</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -32,7 +32,7 @@
      <x>10</x>
      <y>10</y>
      <width>381</width>
-     <height>292</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -136,13 +136,23 @@
     <item row="10" column="1">
      <widget class="QLineEdit" name="gPULineEdit"/>
     </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="availabilityLineEdit"/>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="availabilityLabel">
+      <property name="text">
+       <string>Availability</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>320</y>
+     <x>120</x>
+     <y>340</y>
      <width>91</width>
      <height>31</height>
     </rect>

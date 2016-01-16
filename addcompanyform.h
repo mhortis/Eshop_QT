@@ -24,6 +24,7 @@ private slots:
 
 private:
     Ui::AddCompanyForm *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // ADDCOMPANYFORM_H

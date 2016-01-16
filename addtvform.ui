@@ -103,6 +103,16 @@
       </property>
      </widget>
     </item>
+    <item row="8" column="1">
+     <widget class="QLineEdit" name="availabilityLineEdit"/>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="availabilityLabel">
+      <property name="text">
+       <string>Availability</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="cancelButton">

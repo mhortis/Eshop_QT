@@ -19,6 +19,8 @@ public:
 private slots:
     void on_cancelButton_clicked();
 
+    void on_saveButton_clicked();
+
 private:
     Ui::AddSmartphoneForm *ui;
     QSqlDatabase m_db;
