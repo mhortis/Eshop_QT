@@ -15,6 +15,9 @@ public:
     explicit AddPcForm(QWidget *parent = 0);
     ~AddPcForm();
 
+private slots:
+    void on_cancelButton_clicked();
+
 private:
     Ui::AddPcForm *ui;
 };

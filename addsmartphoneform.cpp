@@ -12,3 +12,8 @@ AddSmartphoneForm::~AddSmartphoneForm()
 {
     delete ui;
 }
+
+void AddSmartphoneForm::on_cancelButton_clicked()
+{
+    this->hide();
+}

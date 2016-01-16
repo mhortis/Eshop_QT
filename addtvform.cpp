@@ -12,3 +12,8 @@ AddTvForm::~AddTvForm()
 {
     delete ui;
 }
+
+void AddTvForm::on_cancelButton_clicked()
+{
+    this->hide();
+}

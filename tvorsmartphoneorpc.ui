@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Please the type of Product</string>
+   <string>Please choose the type of Product</string>
   </property>
   <widget class="QPushButton" name="addSmartphone">
    <property name="geometry">

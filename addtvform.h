@@ -15,6 +15,9 @@ public:
     explicit AddTvForm(QWidget *parent = 0);
     ~AddTvForm();
 
+private slots:
+    void on_cancelButton_clicked();
+
 private:
     Ui::AddTvForm *ui;
 };

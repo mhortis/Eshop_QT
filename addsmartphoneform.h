@@ -15,6 +15,9 @@ public:
     explicit AddSmartphoneForm(QWidget *parent = 0);
     ~AddSmartphoneForm();
 
+private slots:
+    void on_cancelButton_clicked();
+
 private:
     Ui::AddSmartphoneForm *ui;
 };

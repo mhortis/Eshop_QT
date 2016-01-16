@@ -12,3 +12,8 @@ AddPcForm::~AddPcForm()
 {
     delete ui;
 }
+
+void AddPcForm::on_cancelButton_clicked()
+{
+    this->hide();
+}
