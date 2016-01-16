@@ -2,6 +2,7 @@
 #include "ui_administratorpanel.h"
 #include "LogoutDialog.h"
 #include "customerorcompany.h"
+#include "tvorsmartphoneorpc.h"
 
 AdministratorPanel::AdministratorPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -55,4 +56,10 @@ void AdministratorPanel::on_actionAdd_User_triggered()
     coc->show();
 
 
+}
+
+void AdministratorPanel::on_actionAdd_Product_triggered()
+{
+    TvOrSmartphoneOrPc *tsp = new TvOrSmartphoneOrPc();
+    tsp->show();
 }
