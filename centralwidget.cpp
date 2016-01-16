@@ -6,6 +6,7 @@ CentralWidget::CentralWidget(QWidget *parent) :
     ui(new Ui::CentralWidget)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 CentralWidget::~CentralWidget()

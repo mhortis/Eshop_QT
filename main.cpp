@@ -4,29 +4,30 @@
 #include "ProductDAO.h"
 #include "UserDAO.h"
 #include "OrderDAO.h"
+#include "DBConnection.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QSqlDatabase m_db;
+
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    QDir dir = QDir::currentPath();
+    QString dbPath =  dir.canonicalPath() + "/eshop.db";
+    m_db.setDatabaseName( dbPath);
+    DBConnection::getInstance().setDB(m_db);
+
+    if (!DBConnection::getInstance().getDB().isOpen())
+    {
+       qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+       qDebug() << "Database: connection ok";
+    }
+
     MainWindow w;
     w.show();
-//    QSqlDatabase m_db;
-
-//    m_db = QSqlDatabase::addDatabase("QSQLITE");
-//    QDir dir = QDir::currentPath();
-//    QString dbPath =  dir.canonicalPath() + "/eshop.db";
-//    m_db.setDatabaseName( dbPath);
-//    if (!m_db.open())
-//    {
-//       qDebug() << dbPath;
-//       qDebug() << "Error: connection with database fail";
-//    }
-//    else
-//    {
-//       qDebug() << dbPath;
-//       qDebug() << "Database: connection ok";
-//    }
-
 //    ProductDAO productDao = ProductDAO(m_db);
 
 //    PC product1 = PC();

@@ -1,11 +1,5 @@
 #include "DBConnection.h"
 
-DBConnection::DBConnection(QSqlDatabase newDB)
-{
-    this->db = newDB;
-    this->db.open();
-}
-
 QSqlDatabase DBConnection::getDB(){
     return this->db;
 }
@@ -15,6 +9,7 @@ void DBConnection::setDB(QSqlDatabase newDB){
         this->db.close();
 
     this->db = newDB;
+    this->db.open();
 }
 
 void DBConnection::setDBName(QString dbName){

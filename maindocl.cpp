@@ -6,6 +6,7 @@ MainDocl::MainDocl(QWidget *parent) :
     ui(new Ui::MainDocl)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 MainDocl::~MainDocl()

@@ -2,6 +2,7 @@
 #define LOGOUTDIALOG_H
 
 #include <QWidget>
+#include "dbconnection.h"
 
 namespace Ui {
 class LogoutDialog;

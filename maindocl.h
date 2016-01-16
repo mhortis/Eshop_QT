@@ -2,6 +2,7 @@
 #define MAINDOCL_H
 
 #include <QDockWidget>
+#include "dbconnection.h"
 
 namespace Ui {
 class MainDocl;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainDocl *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // MAINDOCL_H

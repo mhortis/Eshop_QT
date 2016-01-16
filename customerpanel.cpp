@@ -7,6 +7,7 @@ CustomerPanel::CustomerPanel(QWidget *parent) :
 {
     setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 CustomerPanel::~CustomerPanel()

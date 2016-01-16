@@ -6,6 +6,7 @@ AddPcForm::AddPcForm(QWidget *parent) :
     ui(new Ui::AddPcForm)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 AddPcForm::~AddPcForm()

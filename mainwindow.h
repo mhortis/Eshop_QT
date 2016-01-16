@@ -9,6 +9,7 @@
 #include <QTDebug>
 #include <QFileInfo>
 #include "UserDAO.h"
+#include "dbconnection.h"
 
 
 namespace Ui {

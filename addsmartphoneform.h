@@ -2,6 +2,7 @@
 #define ADDSMARTPHONEFORM_H
 
 #include <QDialog>
+#include "dbconnection.h"
 
 namespace Ui {
 class AddSmartphoneForm;
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::AddSmartphoneForm *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // ADDSMARTPHONEFORM_H

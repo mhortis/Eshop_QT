@@ -13,22 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     setAttribute(Qt::WA_DeleteOnClose);
+    m_db = DBConnection::getInstance().getDB();
 
     ui->setupUi(this);
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    QDir dir = QDir::currentPath();
-    QString dbPath =  dir.canonicalPath() + "/eshop.db";
-    m_db.setDatabaseName( dbPath);
-
-    if(!m_db.open()){
-        QMessageBox::warning(
-                this,
-                tr("Eshop"),
-                tr("Failed to open the database") );
-        //ui->statusLabel->setText("Failed to open the database");
-    }else{
-        ui->statusLabel->setText("Please Login...");
-    }
 }
 
 MainWindow::~MainWindow()

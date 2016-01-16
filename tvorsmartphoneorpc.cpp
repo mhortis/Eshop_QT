@@ -9,6 +9,7 @@ TvOrSmartphoneOrPc::TvOrSmartphoneOrPc(QWidget *parent) :
     ui(new Ui::TvOrSmartphoneOrPc)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 TvOrSmartphoneOrPc::~TvOrSmartphoneOrPc()

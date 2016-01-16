@@ -2,6 +2,7 @@
 #define CUSTOMERORCOMPANY_H
 
 #include <QDialog>
+#include "dbconnection.h"
 
 namespace Ui {
 class CustomerOrCompany;
@@ -22,6 +23,7 @@ private slots:
 
 private:
     Ui::CustomerOrCompany *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // CUSTOMERORCOMPANY_H

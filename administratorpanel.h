@@ -8,6 +8,7 @@
 #include <QComboBox>
 #include <QSpinBox>
 #include <QLAbel>
+#include "dbconnection.h"
 
 namespace Ui {
 class AdministratorPanel;
@@ -36,6 +37,7 @@ private slots:
 private:
     Ui::AdministratorPanel *ui;
     int panelType = 1;
+    QSqlDatabase m_db;
 };
 
 #endif // ADMINISTRATORPANEL_H

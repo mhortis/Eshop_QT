@@ -2,7 +2,7 @@
 #define ADDCUSTOMERFORM_H
 
 #include <QDialog>
-#include <QSqlDatabase>
+#include "dbconnection.h"
 
 namespace Ui {
 class AddCustomerForm;
