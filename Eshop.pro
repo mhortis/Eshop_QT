@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     tvorsmartphoneorpc.cpp \
     addtvform.cpp \
     addpcform.cpp \
-    addsmartphoneform.cpp
+    addsmartphoneform.cpp \
+    DBConnection.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -68,7 +69,8 @@ HEADERS  += mainwindow.h \
     tvorsmartphoneorpc.h \
     addtvform.h \
     addpcform.h \
-    addsmartphoneform.h
+    addsmartphoneform.h \
+    DBConnection.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
