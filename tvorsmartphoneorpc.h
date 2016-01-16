@@ -2,6 +2,7 @@
 #define TVORSMARTPHONEORPC_H
 
 #include <QDialog>
+#include "dbconnection.h"
 
 namespace Ui {
 class TvOrSmartphoneOrPc;
@@ -24,6 +25,7 @@ private slots:
 
 private:
     Ui::TvOrSmartphoneOrPc *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // TVORSMARTPHONEORPC_H

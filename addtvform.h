@@ -2,6 +2,7 @@
 #define ADDTVFORM_H
 
 #include <QDialog>
+#include "dbconnection.h"
 
 namespace Ui {
 class AddTvForm;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::AddTvForm *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // ADDTVFORM_H

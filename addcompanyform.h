@@ -2,7 +2,7 @@
 #define ADDCOMPANYFORM_H
 
 #include <QDialog>
-
+#include "dbconnection.h"
 namespace Ui {
 class AddCompanyForm;
 }

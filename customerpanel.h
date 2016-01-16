@@ -2,6 +2,7 @@
 #define CUSTOMERPANEL_H
 
 #include <QMainWindow>
+#include "dbconnection.h"
 
 namespace Ui {
 class CustomerPanel;
@@ -21,6 +22,7 @@ private slots:
 private:
     Ui::CustomerPanel *ui;
     int panelType = 2;
+    QSqlDatabase m_db;
 
 };
 

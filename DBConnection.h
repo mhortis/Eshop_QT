@@ -4,7 +4,10 @@
 class DBConnection
 {
 public:
-    DBConnection(QSqlDatabase newDB);
+    static DBConnection& getInstance(){
+        static DBConnection instance;
+        return instance;
+    }
     QSqlDatabase getDB();
     void setDB(QSqlDatabase newDB);
     void setDBName(QString dbName);

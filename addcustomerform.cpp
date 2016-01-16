@@ -8,6 +8,7 @@ AddCustomerForm::AddCustomerForm(QWidget *parent) :
     ui(new Ui::AddCustomerForm)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 
 }
 
@@ -41,10 +42,6 @@ void AddCustomerForm::on_saveButton_clicked()
     p.setPhoneNumber(phone.constData());
     p.setAddress(address.constData());
     //Save Customer to db
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    QDir dir = QDir::currentPath();
-    QString dbPath =  dir.canonicalPath() + "/eshop.db";
-    m_db.setDatabaseName( dbPath);
     UserDAO userDao = UserDAO(m_db);
     userDao.insertPersonInDB(p);
 

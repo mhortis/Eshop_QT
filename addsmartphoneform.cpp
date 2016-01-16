@@ -6,6 +6,7 @@ AddSmartphoneForm::AddSmartphoneForm(QWidget *parent) :
     ui(new Ui::AddSmartphoneForm)
 {
     ui->setupUi(this);
+    m_db = DBConnection::getInstance().getDB();
 }
 
 AddSmartphoneForm::~AddSmartphoneForm()

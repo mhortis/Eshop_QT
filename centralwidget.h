@@ -2,6 +2,7 @@
 #define CENTRALWIDGET_H
 
 #include <QDockWidget>
+#include "dbconnection.h"
 
 namespace Ui {
 class CentralWidget;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::CentralWidget *ui;
+    QSqlDatabase m_db;
 };
 
 #endif // CENTRALWIDGET_H
