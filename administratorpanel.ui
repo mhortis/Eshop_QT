@@ -83,7 +83,7 @@
   </action>
   <action name="actionUpdate_Product">
    <property name="text">
-    <string>Update/Remove Product</string>
+    <string>List Products - Update/Remove Product</string>
    </property>
   </action>
   <action name="actionRemove_Product">
