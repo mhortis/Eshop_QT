@@ -6,13 +6,87 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>644</width>
-    <height>509</height>
+    <width>1110</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Products</string>
   </property>
+  <widget class="QTableWidget" name="table">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>1011</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showAll">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show All Products</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showTVs">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>20</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show TVs</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showPCs">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>20</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show PCs</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showSmPhones">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>20</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Smartphones</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
