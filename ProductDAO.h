@@ -30,6 +30,7 @@ public:
 	vector<Availability> fetchAllPCsFromDB();
 	vector<Availability> fetchAllSmartphonesFromDB();
 	vector<Availability> fetchAllTVsFromDB();
+    vector<string> fetchAllManufacturers();
 private:
     QSqlDatabase db;
 };

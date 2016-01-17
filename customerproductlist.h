@@ -22,10 +22,12 @@ private slots:
     void on_showTVs_clicked();
     void on_showPCs_clicked();
     void on_showSmPhones_clicked();
+    void on_comboBox_activated(const QString &arg1);
 
 private:
     Ui::CustomerProductList *ui;
     vector<Availability> products;
+    vector<string> manufacturers;
     QSqlDatabase m_db;
 };
 

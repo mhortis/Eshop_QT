@@ -749,3 +749,37 @@ vector<Availability> ProductDAO::fetchProductsByManufacturer(string manufacturer
     }
     return products;
 }
+
+vector<string> ProductDAO::fetchAllManufacturers(){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        vector<string> man;
+        return man;
+    }
+
+    QSqlQuery query(db);
+    string manufacturer;
+    vector <string> manufacturers;
+
+    query.prepare("SELECT * from products;");
+
+    if(query.exec()){
+        while(query.next()){
+                manufacturer.clear();
+                manufacturer.append(query.value(query.record().indexOf("MANUFACTURER")).toString().toLatin1());
+                if (std::find(manufacturers.begin(), manufacturers.end(), manufacturer) == manufacturers.end()) {
+
+                          manufacturers.push_back(manufacturer);
+                }
+                manufacturers.push_back(manufacturer);
+            }
+
+    }
+    else{
+        qDebug() << "Error in fetching products from database. Error code: " << query.lastError() << endl;
+        vector<string> man;
+        return man;
+    }
+
+    return manufacturers;
+}
