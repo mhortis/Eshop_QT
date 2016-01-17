@@ -10,6 +10,7 @@ public:
     string getAfm();
     string getPhoneNumber();
     string getAddress();
+    map<ProductBase, int> getCart();
     void setAfm(const char* afm);
     void setPhoneNumber(const char* phoneNumber);
     void setAddress(const char* address);

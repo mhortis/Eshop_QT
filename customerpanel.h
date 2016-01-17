@@ -5,6 +5,11 @@
 #include "dbconnection.h"
 #include "stdafx.h"
 #include "Customer.h"
+#include <QMessageBox>
+#include "OrderDAO.h"
+#include "neworder.h"
+#include "customerorders.h"
+
 namespace Ui {
 class CustomerPanel;
 }
@@ -22,6 +27,10 @@ private slots:
     void on_actionLogout_triggered();
     int getPanelType();
     void on_actionList_Products_triggered();
+
+    void on_actionView_Orders_triggered();
+
+    void on_actionNew_Order_triggered();
 
 private:
     Ui::CustomerPanel *ui;

@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOrders">
@@ -28,8 +28,7 @@
      <string>Orders</string>
     </property>
     <addaction name="actionNew_Order"/>
-    <addaction name="actionShow_Order_Status"/>
-    <addaction name="actionUpdate_Order_Status"/>
+    <addaction name="actionView_Orders"/>
    </widget>
    <widget class="QMenu" name="menuLogout">
     <property name="title">
@@ -60,14 +59,9 @@
     <string>New Order</string>
    </property>
   </action>
-  <action name="actionShow_Order_Status">
+  <action name="actionView_Orders">
    <property name="text">
-    <string>Order Status</string>
-   </property>
-  </action>
-  <action name="actionUpdate_Order_Status">
-   <property name="text">
-    <string>Update Order Status</string>
+    <string>View orders</string>
    </property>
   </action>
   <action name="actionList_Products">
