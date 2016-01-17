@@ -2,6 +2,7 @@
 #include "ui_customerpanel.h"
 #include "logoutdialog.h"
 #include <QStringList>
+#include "customerproductlist.h"
 
 CustomerPanel::CustomerPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -34,7 +35,9 @@ void CustomerPanel::on_actionLogout_triggered()
 
 void CustomerPanel::on_actionList_Products_triggered()
 {
-
+    CustomerProductList productList;
+    productList.setModal(true);
+    productList.exec();
 
 }
 

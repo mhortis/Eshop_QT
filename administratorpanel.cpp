@@ -4,6 +4,7 @@
 #include "customerorcompany.h"
 #include "tvorsmartphoneorpc.h"
 #include "adminlistproducts.h"
+#include "adminlistcustomers.h"
 
 AdministratorPanel::AdministratorPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -25,13 +26,9 @@ int AdministratorPanel::getPanelType(){
 
 void AdministratorPanel::on_actionCustomers_triggered()
 {
-   // createAddUserForm();
-    QGroupBox *formGroupBox = new QGroupBox(tr("Form layout"));
-    QFormLayout *layout = new QFormLayout;
-    layout->addRow(new QLabel(tr("Line 1:")), new QLineEdit);
-    layout->addRow(new QLabel(tr("Line 2, long text:")), new QComboBox);
-    layout->addRow(new QLabel(tr("Line 3:")), new QSpinBox);
-    formGroupBox->setLayout(layout);
+    AdminListCustomers customerList;
+    customerList.setModal(true);
+    customerList.exec();
 }
 
 void AdministratorPanel::on_actionLogout_triggered()
@@ -56,8 +53,7 @@ void AdministratorPanel::on_actionAdd_Product_triggered()
 
 void AdministratorPanel::on_actionUpdate_Product_triggered()
 {
-    AdminListProducts adminListP;// = new AdminListProducts();
+    AdminListProducts adminListP;
     adminListP.setModal(true);
     adminListP.exec();
-    //AdminListProducts::listAllProducts();
 }

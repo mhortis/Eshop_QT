@@ -49,7 +49,8 @@ SOURCES += main.cpp\
     updatesmartphone.cpp \
     neworder.cpp \
     customerorders.cpp \
-    customerorder.cpp
+    customerorder.cpp \
+    adminlistcustomers.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -88,7 +89,8 @@ HEADERS  += mainwindow.h \
     updatesmartphone.h \
     neworder.h \
     customerorders.h \
-    customerorder.h
+    customerorder.h \
+    adminlistcustomers.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -111,7 +113,9 @@ FORMS    += mainwindow.ui \
     updatesmartphone.ui \
     neworder.ui \
     customerorders.ui \
-    customerorder.ui
+    customerorder.ui \
+    adminlistcustomers.ui
+
 QT += sql
 
 DISTFILES += \

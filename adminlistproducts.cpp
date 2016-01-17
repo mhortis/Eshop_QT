@@ -28,7 +28,7 @@ AdminListProducts::AdminListProducts(QWidget *parent) :
         ui->table->setItem(row,4,new QTableWidgetItem(QString::fromStdString(product.getDescription())));
         ui->table->setItem(row,5,new QTableWidgetItem(QString::number(product.getPrice())));
         ui->table->setItem(row,6,new QTableWidgetItem(QString::number(iter->getQuantity())));
-        QVariant data = model->headerData(row, Qt::Vertical);
+        //QVariant data = model->headerData(row, Qt::Vertical);
 
         row++;
 
@@ -37,9 +37,7 @@ AdminListProducts::AdminListProducts(QWidget *parent) :
     ui->table->resizeRowsToContents();
     ui->table->resizeColumnsToContents();
     ui->table->show();
-    //modal->
-    //ui->tableView->setModel(modal);
-    //ui->tableWidget->show();
+
 }
 
 AdminListProducts::~AdminListProducts()
