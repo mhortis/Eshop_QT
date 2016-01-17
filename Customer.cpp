@@ -19,6 +19,10 @@ string Customer::getAddress() {
 	return this->address;
 }
 
+map<ProductBase, int> Customer::getCart(){
+    return this->cart;
+}
+
 void Customer::setAfm(const char* afm) {
     this->afm = string(afm);
 }

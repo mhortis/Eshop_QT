@@ -13,7 +13,8 @@ public:
     void setOrderNumber(int);
     void setOrderBuyer(Customer orderBuyer);
 	void setOrderItems(map<ProductBase, int> orderItems);
-	void setOrderCost(double orderCost);
+    void setOrderCost(double orderCost);
+    void setOrderCost(map<ProductBase, int> orderItems);
     void setOrderStatus(const char* orderStatus);
 private:
     int orderNumber;

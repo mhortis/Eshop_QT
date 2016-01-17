@@ -75,12 +75,12 @@ void MainWindow::on_loginButton_clicked()
                 break;
             }
             default:{
-            QMessageBox::warning(
-                    this,
-                    tr("Eshop"),
-                    tr("Wrong type of user!") );
-                //ui->statusLabel->setText("Wrong type of user!");
-            }
+                QMessageBox::warning(
+                        this,
+                        tr("Eshop"),
+                        tr("Wrong type of user!") );
+                    //ui->statusLabel->setText("Wrong type of user!");
+                }
         }
     }
 }

@@ -34,7 +34,18 @@ void Order::setOrderItems(map<ProductBase, int> orderItems) {
 }
 
 void Order::setOrderCost(double orderCost) {
-	this->orderCost = orderCost;
+    this->orderCost = orderCost;
+}
+
+void Order::setOrderCost(map<ProductBase, int> orderItems) {
+    double cost = 0;
+    for(map<ProductBase, int>::iterator iter = orderItems.begin(); iter != orderItems.end(); iter++){
+        ProductBase cur = iter->first;
+        int quantity = iter->second;
+        double price = cur.getPrice() * quantity;
+        cost += price;
+    }
+    this->orderCost = cost;
 }
 
 void Order::setOrderStatus(const char* orderStatus) {
