@@ -43,7 +43,10 @@ SOURCES += main.cpp\
     DBConnection.cpp \
     adminlistproducts.cpp \
     categoryormanufacturerorall.cpp \
-    customerproductlist.cpp
+    customerproductlist.cpp \
+    updatetv.cpp \
+    updatepc.cpp \
+    updatesmartphone.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -76,7 +79,10 @@ HEADERS  += mainwindow.h \
     DBConnection.h \
     adminlistproducts.h \
     categoryormanufacturerorall.h \
-    customerproductlist.h
+    customerproductlist.h \
+    updatetv.h \
+    updatepc.h \
+    updatesmartphone.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -93,7 +99,10 @@ FORMS    += mainwindow.ui \
     addsmartphoneform.ui \
     adminlistproducts.ui \
     categoryormanufacturerorall.ui \
-    customerproductlist.ui
+    customerproductlist.ui \
+    updatetv.ui \
+    updatepc.ui \
+    updatesmartphone.ui
 QT += sql
 
 DISTFILES += \

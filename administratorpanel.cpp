@@ -56,7 +56,6 @@ void AdministratorPanel::on_actionAdd_Product_triggered()
 
 void AdministratorPanel::on_actionUpdate_Product_triggered()
 {
-    this->hide();
     AdminListProducts adminListP;// = new AdminListProducts();
     adminListP.setModal(true);
     adminListP.exec();

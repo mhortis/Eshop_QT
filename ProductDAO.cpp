@@ -202,7 +202,7 @@ int ProductDAO::updateProductItemsInDB(int serial, int availability) {
 
     QSqlQuery query(db);
 
-    query.prepare("update in products set AVAILABILITY = ? where SERIAL = ?");
+    query.prepare("update products set AVAILABILITY = ? where SERIAL = ?");
 
     query.addBindValue(availability);
     query.addBindValue(serial);
