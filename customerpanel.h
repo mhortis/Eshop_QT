@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include "dbconnection.h"
-
+#include "stdafx.h"
+#include "Customer.h"
 namespace Ui {
 class CustomerPanel;
 }
@@ -14,6 +15,7 @@ class CustomerPanel : public QMainWindow
 
 public:
     explicit CustomerPanel(QWidget *parent = 0);
+    void setCustomer(Customer cust);
     ~CustomerPanel();
 
 private slots:
@@ -25,7 +27,7 @@ private:
     Ui::CustomerPanel *ui;
     int panelType = 2;
     QSqlDatabase m_db;
-
+    Customer customer;
 };
 
 #endif // CUSTOMERPANEL_H

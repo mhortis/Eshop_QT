@@ -12,6 +12,10 @@ CustomerPanel::CustomerPanel(QWidget *parent) :
     m_db = DBConnection::getInstance().getDB();
 }
 
+void CustomerPanel::setCustomer(Customer cust){
+    this->customer = cust;
+}
+
 CustomerPanel::~CustomerPanel()
 {
     delete ui;

@@ -63,6 +63,14 @@ void MainWindow::on_loginButton_clicked()
             case 1:{
                 this->hide();
                 CustomerPanel *customerPanel = new CustomerPanel();
+                customerPanel->setCustomer(userDAO.fetchPersonDetailsFromDB(user.getUserID()));
+                customerPanel->show();
+                break;
+            }
+            case 2:{
+                this->hide();
+                CustomerPanel *customerPanel = new CustomerPanel();
+                customerPanel->setCustomer(userDAO.fetchCompanyDetailsFromDB(user.getUserID()));
                 customerPanel->show();
                 break;
             }
