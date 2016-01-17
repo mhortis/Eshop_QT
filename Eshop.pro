@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     administratorpanel.cpp \
     customerpanel.cpp \
     maindocl.cpp \
-    centralwidget.cpp \
     logoutdialog.cpp \
     customerorcompany.cpp \
     addcompanyform.cpp \
@@ -42,7 +41,6 @@ SOURCES += main.cpp\
     addsmartphoneform.cpp \
     DBConnection.cpp \
     adminlistproducts.cpp \
-    categoryormanufacturerorall.cpp \
     customerproductlist.cpp \
     updatetv.cpp \
     updatepc.cpp \
@@ -50,7 +48,10 @@ SOURCES += main.cpp\
     neworder.cpp \
     customerorders.cpp \
     customerorder.cpp \
-    adminlistcustomers.cpp
+    adminlistcustomers.cpp \
+    cart.cpp \
+    operationcycle.cpp \
+    showcart.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -71,7 +72,6 @@ HEADERS  += mainwindow.h \
     administratorpanel.h \
     customerpanel.h \
     maindocl.h \
-    centralwidget.h \
     logoutdialog.h \
     customerorcompany.h \
     addcompanyform.h \
@@ -82,7 +82,6 @@ HEADERS  += mainwindow.h \
     addsmartphoneform.h \
     DBConnection.h \
     adminlistproducts.h \
-    categoryormanufacturerorall.h \
     customerproductlist.h \
     updatetv.h \
     updatepc.h \
@@ -90,13 +89,15 @@ HEADERS  += mainwindow.h \
     neworder.h \
     customerorders.h \
     customerorder.h \
-    adminlistcustomers.h
+    adminlistcustomers.h \
+    cart.h \
+    operationcycle.h \
+    showcart.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
     customerpanel.ui \
     maindocl.ui \
-    centralwidget.ui \
     logoutdialog.ui \
     customerorcompany.ui \
     addcompanyform.ui \
@@ -106,7 +107,6 @@ FORMS    += mainwindow.ui \
     addpcform.ui \
     addsmartphoneform.ui \
     adminlistproducts.ui \
-    categoryormanufacturerorall.ui \
     customerproductlist.ui \
     updatetv.ui \
     updatepc.ui \
@@ -114,7 +114,9 @@ FORMS    += mainwindow.ui \
     neworder.ui \
     customerorders.ui \
     customerorder.ui \
-    adminlistcustomers.ui
+    adminlistcustomers.ui \
+    operationcycle.ui \
+    showcart.ui
 
 QT += sql
 

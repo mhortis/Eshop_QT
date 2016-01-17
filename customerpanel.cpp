@@ -3,6 +3,8 @@
 #include "logoutdialog.h"
 #include <QStringList>
 #include "customerproductlist.h"
+#include "cart.h"
+#include "showcart.h"
 
 CustomerPanel::CustomerPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -80,4 +82,11 @@ void CustomerPanel::on_actionNew_Order_triggered()
         newOrder.setModal(true);
         newOrder.exec();
     }
+}
+
+void CustomerPanel::on_actionShow_Cart_triggered()
+{
+    showCart theCart;
+    theCart.setModal(true);
+    theCart.exec();
 }

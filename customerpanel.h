@@ -27,10 +27,9 @@ private slots:
     void on_actionLogout_triggered();
     int getPanelType();
     void on_actionList_Products_triggered();
-
     void on_actionView_Orders_triggered();
-
     void on_actionNew_Order_triggered();
+    void on_actionShow_Cart_triggered();
 
 private:
     Ui::CustomerPanel *ui;

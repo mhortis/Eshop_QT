@@ -17,7 +17,6 @@ CustomerOrCompany::~CustomerOrCompany()
     delete ui;
 }
 
-
 void CustomerOrCompany::on_addCompany_clicked()
 {
     this->hide();

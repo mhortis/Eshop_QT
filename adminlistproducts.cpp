@@ -11,7 +11,6 @@ AdminListProducts::AdminListProducts(QWidget *parent) :
 {
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
-    QAbstractItemModel *model = ui->table->model();
     ProductDAO productDao = ProductDAO(m_db);
     products = productDao.fetchAllProductsFromDB();
 

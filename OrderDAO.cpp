@@ -296,6 +296,28 @@ vector<Order> OrderDAO::fetchOrdersByStatus(string status){
     }
 }
 
+vector<double> OrderDAO::fetchAllOrderCost(){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        vector<double> t;
+        return t;
+    }
+    QSqlQuery orderQuery(db);
+    vector<double> orderCosts;
+    orderQuery.prepare("select * from orders");
+    if(orderQuery.exec()){
+        while(orderQuery.next()){
+            orderCosts.push_back(orderQuery.value(orderQuery.record().indexOf("COST")).toDouble());
+        }
+        return orderCosts;
+    }
+    else{
+        qDebug() << "Error in fetching Orders by status. Error code: " << orderQuery.lastError() << endl;
+        vector<double> t;
+        return t;
+    }
+}
+
 int OrderDAO::updateOrderStatusInDB(int orderID, string newOrderStatus){
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";

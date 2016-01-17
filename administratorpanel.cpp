@@ -5,6 +5,7 @@
 #include "tvorsmartphoneorpc.h"
 #include "adminlistproducts.h"
 #include "adminlistcustomers.h"
+#include "operationcycle.h"
 
 AdministratorPanel::AdministratorPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -56,4 +57,11 @@ void AdministratorPanel::on_actionUpdate_Product_triggered()
     AdminListProducts adminListP;
     adminListP.setModal(true);
     adminListP.exec();
+}
+
+void AdministratorPanel::on_actionCalculation_triggered()
+{
+    operationCycle showOC;
+    showOC.setModal(true);
+    showOC.exec();
 }

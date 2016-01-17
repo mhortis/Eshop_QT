@@ -767,12 +767,13 @@ vector<string> ProductDAO::fetchAllManufacturers(){
         while(query.next()){
                 manufacturer.clear();
                 manufacturer.append(query.value(query.record().indexOf("MANUFACTURER")).toString().toLatin1());
-                if (std::find(manufacturers.begin(), manufacturers.end(), manufacturer) == manufacturers.end()) {
-
-                          manufacturers.push_back(manufacturer);
-                }
+                //if (std::find(manufacturers.begin(), manufacturers.end(), manufacturer) == manufacturers.end()) {
                 manufacturers.push_back(manufacturer);
+                //}
+                //manufacturers.push_back(manufacturer);
             }
+            sort( manufacturers.begin(), manufacturers.end() );
+            manufacturers.erase( unique( manufacturers.begin(), manufacturers.end() ), manufacturers.end() );
 
     }
     else{

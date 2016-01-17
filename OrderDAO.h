@@ -13,6 +13,7 @@ public:
     vector<Order> fetchOrderByCustomer(int customerID);
     int updateOrderStatusInDB(int orderID, string newOrderStatus);
     int removeOrderFromDB(int orderID);
+    vector<double> fetchAllOrderCost();
 private:
     QSqlDatabase db;
 };
