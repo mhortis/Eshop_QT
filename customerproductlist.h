@@ -34,7 +34,7 @@ private:
     vector<Availability> products;
     vector<string> manufacturers;
     QSqlDatabase m_db;
-    int row=0;
+    int row=0,q[];
     Cart cart;
     Customer customer;
 };

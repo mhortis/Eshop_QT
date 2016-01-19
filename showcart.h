@@ -1,10 +1,11 @@
 #ifndef SHOWCART_H
 #define SHOWCART_H
-
 #include <QDialog>
 #include "DBConnection.h"
 #include <QSqlDatabase>
 #include "cart.h"
+#include "ProductBase.h"
+#include "Customer.h"
 
 namespace Ui {
 class showCart;
@@ -21,7 +22,8 @@ public:
 private:
     Ui::showCart *ui;
     QSqlDatabase m_db;
-    map<int,int> cart;
+    Cart cart;
+    Customer customer;
 };
 
 #endif // SHOWCART_H

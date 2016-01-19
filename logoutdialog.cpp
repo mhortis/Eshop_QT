@@ -11,7 +11,7 @@ LogoutDialog::LogoutDialog(int panelType, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogoutDialog)
 {
-    setAttribute( Qt::WA_DeleteOnClose );
+    //setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Logout ", "Are you sure you want to logout?",

@@ -14,7 +14,7 @@ CustomerProductList::CustomerProductList(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CustomerProductList)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
+    //setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     m_db = DBConnection::getInstance().getDB();
@@ -32,7 +32,7 @@ CustomerProductList::CustomerProductList(QWidget *parent) :
     ui->table->setColumnCount(8);
     ui->table->setHorizontalHeaderLabels(QString("Serial; Model ;Manufacturer ;Photo Url; Description; Price; Availability; Add to Cart - Quantity").split(";"));
     ui->table->setRowCount(products.size());
-    //std::fill_n(q, products.size(), 1);
+    std::fill_n(q, products.size(), 0);
     for (vector<Availability>::iterator iter = products.begin(); iter != products.end(); iter++) {
         ProductBase product = iter->getProduct();
         ui->table->setItem(row,0,new QTableWidgetItem(QString::number(product.getSerial())));
@@ -42,7 +42,8 @@ CustomerProductList::CustomerProductList(QWidget *parent) :
         ui->table->setItem(row,4,new QTableWidgetItem(QString::fromStdString(product.getDescription())));
         ui->table->setItem(row,5,new QTableWidgetItem(QString::number(product.getPrice())));
         ui->table->setItem(row,6,new QTableWidgetItem(QString::number(iter->getQuantity())));
-        ui->table->item(row,7)->setFlags(ui->table->item(row,0)->flags() ^ Qt::ItemIsEditable);
+        ui->table->setItem(row,7,new QTableWidgetItem(QString::number(q[row])));
+        ui->table->item(row,7)->setFlags(ui->table->item(row,7)->flags() ^ Qt::ItemIsEditable);
         row++;
     }
     ui->table->sortItems(0);
@@ -75,6 +76,8 @@ void CustomerProductList::on_showAll_clicked()
         ui->table->setItem(row,4,new QTableWidgetItem(QString::fromStdString(product.getDescription())));
         ui->table->setItem(row,5,new QTableWidgetItem(QString::number(product.getPrice())));
         ui->table->setItem(row,6,new QTableWidgetItem(QString::number(iter->getQuantity())));
+        ui->table->setItem(row,7,new QTableWidgetItem(QString::number(q[row])));
+        ui->table->item(row,7)->setFlags(ui->table->item(row,7)->flags() ^ Qt::ItemIsEditable);
         row++;
 
     }
@@ -108,6 +111,8 @@ void CustomerProductList::on_showTVs_clicked()
         }else{
             ui->table->setItem(row,8,new QTableWidgetItem(QString::fromStdString("No")));
         }
+        ui->table->setItem(row,9,new QTableWidgetItem(QString::number(q[row])));
+        ui->table->item(row,9)->setFlags(ui->table->item(row,9)->flags() ^ Qt::ItemIsEditable);
         row++;
     }
     ui->table->sortItems(0);
@@ -139,8 +144,9 @@ void CustomerProductList::on_showPCs_clicked()
         ui->table->setItem(row,9,new QTableWidgetItem(QString::fromStdString(pc.getDiskType())));
         ui->table->setItem(row,10,new QTableWidgetItem(QString::number(pc.getDiskSpace())));
         ui->table->setItem(row,11,new QTableWidgetItem(QString::fromStdString(pc.getGpu())));
+        ui->table->setItem(row,12,new QTableWidgetItem(QString::number(q[row])));
+        ui->table->item(row,12)->setFlags(ui->table->item(row,12)->flags() ^ Qt::ItemIsEditable);
         row++;
-
     }
     ui->table->sortItems(0);
     ui->table->resizeRowsToContents();
@@ -173,6 +179,8 @@ void CustomerProductList::on_showSmPhones_clicked()
         }else{
             ui->table->setItem(row,9,new QTableWidgetItem(QString::fromStdString("No")));
         }
+        ui->table->setItem(row,10,new QTableWidgetItem(QString::number(q[row])));
+        ui->table->item(row,10)->setFlags(ui->table->item(row,10)->flags() ^ Qt::ItemIsEditable);
         row++;
     }
     ui->table->sortItems(0);
@@ -200,9 +208,9 @@ void CustomerProductList::on_comboBox_activated(const QString &arg1)
                 ui->table->setItem(row,4,new QTableWidgetItem(QString::fromStdString(product.getDescription())));
                 ui->table->setItem(row,5,new QTableWidgetItem(QString::number(product.getPrice())));
                 ui->table->setItem(row,6,new QTableWidgetItem(QString::number(iter->getQuantity())));
-
+                ui->table->setItem(row,7,new QTableWidgetItem(QString::number(q[row])));
+                ui->table->item(row,7)->setFlags(ui->table->item(row,7)->flags() ^ Qt::ItemIsEditable);
                 row++;
-
             }
             ui->table->sortItems(0);
             ui->table->resizeRowsToContents();
@@ -230,5 +238,5 @@ void CustomerProductList::on_cancel_clicked()
 
 void CustomerProductList::on_newOrder_clicked()
 {
-
+    this->hide();
 }
