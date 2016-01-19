@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuShow">
@@ -49,9 +49,8 @@
     <property name="title">
      <string>Orders</string>
     </property>
-    <addaction name="actionPrint_Order_per_Customer"/>
-    <addaction name="actionPrint_Order_per_Product"/>
-    <addaction name="actionUpdate_Order_Status"/>
+    <addaction name="actionView_Per_Customer"/>
+    <addaction name="actionView_Per_Status"/>
    </widget>
    <addaction name="menuShow"/>
    <addaction name="menuOrders"/>
@@ -91,19 +90,14 @@
     <string>Remove Product</string>
    </property>
   </action>
-  <action name="actionPrint_Order_per_Customer">
+  <action name="actionView_Per_Customer">
    <property name="text">
-    <string>Print Order per Customer</string>
+    <string>View orders per customer</string>
    </property>
   </action>
-  <action name="actionPrint_Order_per_Product">
+  <action name="actionView_Per_Status">
    <property name="text">
-    <string>Print Order per Order Status</string>
-   </property>
-  </action>
-  <action name="actionUpdate_Order_Status">
-   <property name="text">
-    <string>Update Order Status</string>
+    <string>View orders per order status</string>
    </property>
   </action>
   <action name="actionAdd_User">

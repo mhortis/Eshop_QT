@@ -70,6 +70,5 @@ void CustomerOrders::on_cancelOrder_clicked()
                 this,
                 tr("Order cancelled"),
                 tr("The order has been cancelled!") );
-        ui->table->repaint();
     }
 }

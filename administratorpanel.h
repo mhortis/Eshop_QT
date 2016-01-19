@@ -9,6 +9,9 @@
 #include <QSpinBox>
 #include <QLAbel>
 #include "dbconnection.h"
+#include "orderspercustomer.h"
+#include "ordersperstatus.h"
+#include "UserDAO.h"
 
 namespace Ui {
 class AdministratorPanel;
@@ -37,6 +40,10 @@ private slots:
     void on_actionUpdate_Product_triggered();
 
     void on_actionCalculation_triggered();
+
+    void on_actionView_Per_Customer_triggered();
+
+    void on_actionView_Per_Status_triggered();
 
 private:
     Ui::AdministratorPanel *ui;

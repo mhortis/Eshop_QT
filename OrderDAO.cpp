@@ -318,6 +318,31 @@ vector<double> OrderDAO::fetchAllOrderCost(){
     }
 }
 
+vector<int> OrderDAO::fetchCustomerIDsWithOrders(){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        vector<int> customers;
+        return customers;
+    }
+
+    QSqlQuery query(db);
+    vector<int> customerIDs;
+    query.prepare("select CUSTOMER_ID from orders");
+
+    if(query.exec()){
+        while(query.next()){
+            int customerID = query.value(query.record().indexOf("CUSTOMER_ID")).toInt();
+            customerIDs.push_back(customerID);
+        }
+    }
+    else{
+        qDebug() << "Error in fetching customers with orders. Error code: " << query.lastError() << endl;
+        vector<int> customers;
+        return customers;
+    }
+    return customerIDs;
+}
+
 int OrderDAO::updateOrderStatusInDB(int orderID, string newOrderStatus){
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";
@@ -328,6 +353,27 @@ int OrderDAO::updateOrderStatusInDB(int orderID, string newOrderStatus){
 
     query.prepare("update orders set STATUS = ? WHERE ID = ?");
     query.addBindValue(QString::fromStdString(newOrderStatus));
+    query.addBindValue(orderID);
+
+    if(query.exec()){
+        return true;
+    }
+    else{
+        qDebug() << "Error in update of Order. Error code: " << query.lastError() << endl;
+        return false;
+    }
+}
+
+int OrderDAO::updateOrderBuyerInDB(int orderID, int customerID){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        return false;
+    }
+
+    QSqlQuery query(db);
+
+    query.prepare("update orders set CUSTOMER_ID = ? WHERE ID = ?");
+    query.addBindValue(customerID);
     query.addBindValue(orderID);
 
     if(query.exec()){

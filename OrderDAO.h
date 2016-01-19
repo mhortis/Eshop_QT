@@ -11,6 +11,8 @@ public:
     Order fetchOrderByIDFromDB(int orderID);
     vector<Order> fetchOrdersByStatus(string status);
     vector<Order> fetchOrderByCustomer(int customerID);
+    vector<int> fetchCustomerIDsWithOrders();
+    int updateOrderBuyerInDB(int orderID, int customerID);
     int updateOrderStatusInDB(int orderID, string newOrderStatus);
     int removeOrderFromDB(int orderID);
     vector<double> fetchAllOrderCost();

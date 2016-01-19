@@ -42,7 +42,6 @@ void NewOrder::showOrder(){
     ui->table->resizeRowsToContents();
     ui->table->resizeColumnsToContents();
     ui->table->show();
-
 }
 
 NewOrder::~NewOrder()

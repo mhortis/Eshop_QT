@@ -12,9 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
     m_db = DBConnection::getInstance().getDB();
-
     ui->setupUi(this);
 }
 

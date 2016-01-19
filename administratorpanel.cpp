@@ -11,7 +11,6 @@ AdministratorPanel::AdministratorPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdministratorPanel)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
 }
@@ -64,4 +63,20 @@ void AdministratorPanel::on_actionCalculation_triggered()
     operationCycle showOC;
     showOC.setModal(true);
     showOC.exec();
+}
+
+void AdministratorPanel::on_actionView_Per_Customer_triggered()
+{
+    OrderDAO orderDAO(m_db);
+    vector<int> customers = orderDAO.fetchCustomerIDsWithOrders();
+    OrdersPerCustomer ordersPerCustomer;
+    ordersPerCustomer.setCustomers(customers);
+    ordersPerCustomer.showCustomers();
+    ordersPerCustomer.exec();
+}
+
+void AdministratorPanel::on_actionView_Per_Status_triggered()
+{
+    OrdersPerStatus ordersPerStatus;
+    ordersPerStatus.exec();
 }

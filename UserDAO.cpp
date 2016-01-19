@@ -407,6 +407,55 @@ vector<UserBase> UserDAO::fetchUsersFromDB(){
     return users;
 }
 
+vector<Customer> UserDAO::fetchCustomersFromDB(){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        vector<Customer> customers;
+        return customers;
+    }
+
+    QSqlQuery query(db);
+    vector<Customer> customers;
+    query.prepare("SELECT * from users where TYPE = 1 OR TYPE = 2");
+
+    if(query.exec()){
+        while(query.next()){
+            if(query.value(query.record().indexOf("TYPE")) == 1){
+                Person person = Person(query.value(query.record().indexOf("USERNAME")).toString().toLocal8Bit().constData(),
+                        query.value(query.record().indexOf("PASSWORD")).toString().toLocal8Bit().constData());
+                person.setUserID(query.value(query.record().indexOf("ID")).toInt());
+                person.setAfm(query.value(query.record().indexOf("AFM")).toString().toLocal8Bit().constData());
+                person.setPhoneNumber(query.value(query.record().indexOf("PHONE")).toString().toLocal8Bit().constData());
+                person.setAddress(query.value(query.record().indexOf("ADDRESS")).toString().toLocal8Bit().constData());
+                person.setName(query.value(query.record().indexOf("NAME")).toString().toLocal8Bit().constData());
+                person.setSurname(query.value(query.record().indexOf("SURNAME")).toString().toLocal8Bit().constData());
+                person.setIdentity(query.value(query.record().indexOf("IDENTITY")).toString().toLocal8Bit().constData());
+                customers.push_back(person);
+            }
+            else{
+                Company company = Company(query.value(query.record().indexOf("USERNAME")).toString().toLocal8Bit().constData(),
+                                          query.value(query.record().indexOf("PASSWORD")).toString().toLocal8Bit().constData());
+                company.setUserID(query.value(query.record().indexOf("ID")).toInt());
+                company.setAfm(query.value(query.record().indexOf("AFM")).toString().toLocal8Bit().constData());
+                company.setPhoneNumber(query.value(query.record().indexOf("PHONE")).toString().toLocal8Bit().constData());
+                company.setAddress(query.value(query.record().indexOf("ADDRESS")).toString().toLocal8Bit().constData());
+                company.setCompanyName(query.value(query.record().indexOf("COMPANY_NAME")).toString().toLocal8Bit().constData());
+                company.setResponsibleName(query.value(query.record().indexOf("RESPONSIBLE_NAME")).toString().toLocal8Bit().constData());
+                company.setResponsibleSurname(query.value(query.record().indexOf("RESPONSIBLE_SURNAME")).toString().toLocal8Bit().constData());
+                company.setDiscount(query.value(query.record().indexOf("DISCOUNT")).toDouble());
+                company.setFax(query.value(query.record().indexOf("FAX")).toString().toLocal8Bit().constData());
+                customers.push_back(company);
+            }
+        }
+    }
+    else{
+        qDebug() << "Error in fetching users. Error code: " << query.lastError() << endl;
+        vector<Customer> customers;
+        return customers;
+    }
+    return customers;
+}
+
 vector<Administrator> UserDAO::fetchAdminsFromDB(){
     if (!db.open()) {
         qDebug() << "Invalid or unset database.";

@@ -8,7 +8,6 @@ operationCycle::operationCycle(QWidget *parent) :
     ui(new Ui::operationCycle)
 {
     ui->setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
     m_db = DBConnection::getInstance().getDB();
     //Calculate the Total Revenue of All the orders
     ui->showRevenue->setAlignment(Qt::AlignCenter);

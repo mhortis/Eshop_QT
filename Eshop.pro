@@ -51,7 +51,10 @@ SOURCES += main.cpp\
     adminlistcustomers.cpp \
     cart.cpp \
     operationcycle.cpp \
-    showcart.cpp
+    showcart.cpp \
+    orderspercustomer.cpp \
+    orderslistandupdate.cpp \
+    ordersperstatus.cpp
 
 HEADERS  += mainwindow.h \
     Administrator.h \
@@ -92,7 +95,10 @@ HEADERS  += mainwindow.h \
     adminlistcustomers.h \
     cart.h \
     operationcycle.h \
-    showcart.h
+    showcart.h \
+    orderspercustomer.h \
+    orderslistandupdate.h \
+    ordersperstatus.h
 
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
@@ -116,7 +122,10 @@ FORMS    += mainwindow.ui \
     customerorder.ui \
     adminlistcustomers.ui \
     operationcycle.ui \
-    showcart.ui
+    showcart.ui \
+    orderspercustomer.ui \
+    orderslistandupdate.ui \
+    ordersperstatus.ui
 
 QT += sql
 

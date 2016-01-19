@@ -9,7 +9,6 @@ AdminListCustomers::AdminListCustomers(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AdminListCustomers)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
 

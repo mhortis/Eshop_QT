@@ -20,6 +20,7 @@ public:
     Person fetchPersonDetailsFromDB(int userID);
     Company fetchCompanyDetailsFromDB(int companyID);
 	vector<UserBase> fetchUsersFromDB();
+    vector<Customer> fetchCustomersFromDB();
     vector<Person> fetchPersonsFromDB();
     vector<Company> fetchCompaniesFromDB();
 	vector<Administrator> fetchAdminsFromDB();
