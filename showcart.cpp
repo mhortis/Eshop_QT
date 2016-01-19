@@ -10,10 +10,9 @@ showCart::showCart(QWidget *parent) :
     ui(new Ui::showCart)
 {
     ui->setupUi(this);
-    //
     m_db = DBConnection::getInstance().getDB();
     ProductDAO productDao = ProductDAO(m_db);
-    cart = Cart::getInstance().getCart();
+    //cart = Cart::getInstance().getCart();
     ui->table->setColumnCount(5);
     ui->table->setHorizontalHeaderLabels(QString("Serial; Model ;Manufacturer ; Price; Quantity").split(";"));
     ui->table->setRowCount(cart.size());

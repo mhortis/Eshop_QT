@@ -20,6 +20,8 @@ public:
     void showOrder();
     ~NewOrder();
 
+private slots:
+
 private:
     Ui::NewOrder *ui;
     QSqlDatabase m_db;

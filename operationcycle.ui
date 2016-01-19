@@ -11,14 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Revenue Calculation</string>
   </property>
   <widget class="QLabel" name="showRevenue">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>50</y>
-     <width>271</width>
+     <width>291</width>
      <height>191</height>
     </rect>
    </property>
