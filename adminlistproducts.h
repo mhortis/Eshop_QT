@@ -19,15 +19,11 @@ class AdminListProducts : public QDialog
 public:
     explicit AdminListProducts(QWidget *parent = 0);
     void listAllProducts();
-    //void listPerCategory(int type=1);
-    //void listPerManufacturer(const char* manufacturer);
     ~AdminListProducts();
 
 private slots:
 
     void on_table_doubleClicked(const QModelIndex &index);
-
-    //void on_table_activated(const QModelIndex &index);
 
 private:
     Ui::AdminListProducts *ui;

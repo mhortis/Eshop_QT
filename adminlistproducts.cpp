@@ -27,7 +27,6 @@ AdminListProducts::AdminListProducts(QWidget *parent) :
         ui->table->setItem(row,4,new QTableWidgetItem(QString::fromStdString(product.getDescription())));
         ui->table->setItem(row,5,new QTableWidgetItem(QString::number(product.getPrice())));
         ui->table->setItem(row,6,new QTableWidgetItem(QString::number(iter->getQuantity())));
-        //QVariant data = model->headerData(row, Qt::Vertical);
 
         row++;
 
@@ -52,21 +51,18 @@ void AdminListProducts::on_table_doubleClicked(const QModelIndex &index)
         UpdatePC updatePC;
         updatePC.setProduct(curProduct, availability);
         updatePC.showProduct();
-        updatePC.setModal(true);
         updatePC.exec();
     }
     else if(curProduct.getType() == 1){
         UpdateSmartphone updateSmartphone;
         updateSmartphone.setProduct(curProduct, availability);
         updateSmartphone.showProduct();
-        updateSmartphone.setModal(true);
         updateSmartphone.exec();
     }
     else if(curProduct.getType() == 2){
         UpdateTV updateTV;
         updateTV.setProduct(curProduct, availability);
         updateTV.showProduct();
-        updateTV.setModal(true);
         updateTV.exec();
     }
 }

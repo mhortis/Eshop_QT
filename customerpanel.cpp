@@ -10,7 +10,6 @@ CustomerPanel::CustomerPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CustomerPanel)
 {
-    //setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
 }
@@ -35,14 +34,13 @@ int CustomerPanel::getPanelType(){
 void CustomerPanel::on_actionLogout_triggered()
 {
     this->close();
-    LogoutDialog *logout = new LogoutDialog(this->getPanelType());
-    logout->show();
+    LogoutDialog logout(this->getPanelType());
+    logout.show();
 }
 
 void CustomerPanel::on_actionList_Products_triggered()
 {
     CustomerProductList productList;
-    productList.setModal(true);
     productList.exec();
 
 }
@@ -61,14 +59,13 @@ void CustomerPanel::on_actionView_Orders_triggered()
         CustomerOrders customerOrders;
         customerOrders.setOrders(orders);
         customerOrders.showOrders();
-        customerOrders.setModal(true);
         customerOrders.exec();
     }
 }
 
 void CustomerPanel::on_actionNew_Order_triggered()
 {
-    if(customer.getCart().empty()){
+    if(Cart::getInstance().getCart().empty()){
         QMessageBox::warning(
                 this,
                 tr("No products in cart"),
@@ -78,12 +75,11 @@ void CustomerPanel::on_actionNew_Order_triggered()
         Order order;
         order.setOrderBuyer(customer);
         order.setOrderStatus("Processing");
-        order.setOrderItems(customer.getCart());
-        order.setOrderCost(customer.getCart());
+//        order.setOrderItems(Cart::getInstance().getCart());
+//        order.setOrderCost(Cart::getInstance().getCart());
         NewOrder newOrder;
         newOrder.setOrder(order);
         newOrder.showOrder();
-        newOrder.setModal(true);
         newOrder.exec();
     }
 }
@@ -91,6 +87,5 @@ void CustomerPanel::on_actionNew_Order_triggered()
 void CustomerPanel::on_actionShow_Cart_triggered()
 {
     showCart theCart;
-    theCart.setModal(true);
     theCart.exec();
 }

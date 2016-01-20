@@ -6,6 +6,8 @@
 #include "cart.h"
 #include "ProductBase.h"
 #include "Customer.h"
+#include "OrderDAO.h"
+#include <QMessageBox>
 
 namespace Ui {
 class showCart;
@@ -19,10 +21,13 @@ public:
     explicit showCart(QWidget *parent = 0);
     ~showCart();
 
+private slots:
+
+    void on_pushButton_clicked();
+
 private:
     Ui::showCart *ui;
     QSqlDatabase m_db;
-    Cart cart;
     Customer customer;
 };
 

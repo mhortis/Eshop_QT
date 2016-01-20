@@ -35,7 +35,7 @@ void AddCompanyForm::on_saveButton_clicked()
     address = ui->addressLineEdit->text().toLatin1();
     username = ui->usernameLineEdit->text().toLatin1();
     password = ui->passwordLineEdit->text().toLatin1();
-    //Create a new Company
+    //Create a new Company and set properties
     Company c= Company(username.constData(),password.constData());
     c.setCompanyName(cname.constData());
     c.setResponsibleName(rname.constData());

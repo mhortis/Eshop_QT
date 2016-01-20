@@ -9,6 +9,7 @@
 #include "OrderDAO.h"
 #include "neworder.h"
 #include "customerorders.h"
+#include "cart.h"
 
 namespace Ui {
 class CustomerPanel;

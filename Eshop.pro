@@ -30,7 +30,6 @@ SOURCES += main.cpp\
     UserDAO.cpp \
     administratorpanel.cpp \
     customerpanel.cpp \
-    maindocl.cpp \
     logoutdialog.cpp \
     customerorcompany.cpp \
     addcompanyform.cpp \
@@ -74,7 +73,6 @@ HEADERS  += mainwindow.h \
     stdafx.h \
     administratorpanel.h \
     customerpanel.h \
-    maindocl.h \
     logoutdialog.h \
     customerorcompany.h \
     addcompanyform.h \
@@ -103,7 +101,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     administratorpanel.ui \
     customerpanel.ui \
-    maindocl.ui \
     logoutdialog.ui \
     customerorcompany.ui \
     addcompanyform.ui \

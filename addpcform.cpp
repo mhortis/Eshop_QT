@@ -39,7 +39,7 @@ void AddPcForm::on_saveButton_clicked()
     cpu = ui->cpuLineEdit->text().toDouble();
     diskspace = ui->diskSpaceLineEdit->text().toInt();
     availability = ui->availabilityLineEdit->text().toInt();
-    //Create a new PC
+    //Create a new PC and set properties
     PC p= PC();
     p.setModel(model.constData());
     p.setManufacturer(manufacturer.constData());

@@ -7,7 +7,6 @@ CustomerOrCompany::CustomerOrCompany(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CustomerOrCompany)
 {
-    //setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
 }
@@ -21,7 +20,6 @@ void CustomerOrCompany::on_addCompany_clicked()
 {
     this->hide();
     AddCompanyForm addCompany;
-    addCompany.setModal(true);
     addCompany.exec();
 }
 
@@ -29,6 +27,5 @@ void CustomerOrCompany::on_addCustomer_clicked()
 {
     this->hide();
     AddCustomerForm addCustomer;
-    addCustomer.setModal(true);
     addCustomer.exec();
 }

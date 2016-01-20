@@ -41,27 +41,25 @@ void AdministratorPanel::on_actionLogout_triggered()
 
 void AdministratorPanel::on_actionAdd_User_triggered()
 {
-    CustomerOrCompany *coc = new CustomerOrCompany();
-    coc->show();
+    CustomerOrCompany coc;
+    coc.exec();
 }
 
 void AdministratorPanel::on_actionAdd_Product_triggered()
 {
-    TvOrSmartphoneOrPc *tsp = new TvOrSmartphoneOrPc();
-    tsp->show();
+    TvOrSmartphoneOrPc tsp;
+    tsp.exec();
 }
 
 void AdministratorPanel::on_actionUpdate_Product_triggered()
 {
     AdminListProducts adminListP;
-    adminListP.setModal(true);
     adminListP.exec();
 }
 
 void AdministratorPanel::on_actionCalculation_triggered()
 {
     operationCycle showOC;
-    showOC.setModal(true);
     showOC.exec();
 }
 

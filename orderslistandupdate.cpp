@@ -41,23 +41,19 @@ OrdersListAndUpdate::~OrdersListAndUpdate()
 
 void OrdersListAndUpdate::on_saveButton_clicked()
 {
-    QModelIndexList indexes = ui->table->selectionModel()->selectedIndexes();
-    QModelIndex index;
-    for (int i = 0; i < indexes.count(); ++i)
-    {
-        index = indexes.at(i);
+    for(int row = 0; row < ui->table->rowCount(); row++){
+        int orderNumber = ui->table->item(row, 0)->text().toInt();
+        int customerID = ui->table->item(row, 1)->text().toInt();
+        string status = ui->table->item(row, 2)->text().toStdString();
+        OrderDAO orderDAO(m_db);
+        orderDAO.updateOrderBuyerInDB(orderNumber, customerID);
+        orderDAO.updateOrderStatusInDB(orderNumber, status);
     }
 
-    Order order = orders.at(index.row());
-    int customerID = ui->table->item(index.row(), 1)->text().toInt();
-    string status = ui->table->item(index.row(), 2)->text().toStdString();
-    OrderDAO orderDAO(m_db);
-    orderDAO.updateOrderBuyerInDB(order.getOrderNumber(), customerID);
-    orderDAO.updateOrderStatusInDB(order.getOrderNumber(), status);
     QMessageBox::warning(
             this,
-            tr("Order updated"),
-            tr("The order customer ID and status have been updated!") );
+            tr("Orders updated"),
+            tr("The changed orders have been updated!") );
     this->close();
 
 }

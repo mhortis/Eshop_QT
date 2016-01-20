@@ -8,6 +8,7 @@ class OrderDAO
 public:
     OrderDAO(QSqlDatabase database);
     Order insertOrderInDB(Customer cust, map<ProductBase, int> cart);
+    Order insertOrderInDB(Order order);
     Order fetchOrderByIDFromDB(int orderID);
     vector<Order> fetchOrdersByStatus(string status);
     vector<Order> fetchOrderByCustomer(int customerID);

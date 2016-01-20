@@ -32,12 +32,15 @@ void NewOrder::showOrder(){
         totalCost += quantity * curProduct.getPrice();
         row++;
     }
+
+    //Apply company discount
     if(order.getOrderBuyer().getType() == 2){
         UserDAO userDAO(m_db);
         Company company = userDAO.fetchCompanyDetailsFromDB(order.getOrderBuyer().getUserID());
         totalCost *= (1-company.getDiscount());
     }
 
+    order.setOrderCost(totalCost);
     ui->totalCostLabel->setText(QString::number(totalCost));
     ui->table->resizeRowsToContents();
     ui->table->resizeColumnsToContents();
@@ -57,5 +60,5 @@ void NewOrder::on_cancelButton_clicked()
 void NewOrder::on_placeOrderButton_clicked()
 {
     OrderDAO orderDAO(m_db);
-    orderDAO.insertOrderInDB(order.getOrderBuyer(), order.getOrderItems());
+    orderDAO.insertOrderInDB(order);
 }

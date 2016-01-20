@@ -57,6 +57,7 @@ void MainWindow::on_loginButton_clicked()
                 break;
             }
             case 1:{
+                Cart::getInstance().clearCart();
                 this->hide();
                 CustomerPanel *customerPanel = new CustomerPanel();
                 customerPanel->setCustomer(userDAO.fetchPersonDetailsFromDB(user.getUserID()));
@@ -64,6 +65,7 @@ void MainWindow::on_loginButton_clicked()
                 break;
             }
             case 2:{
+                Cart::getInstance().clearCart();
                 this->hide();
                 CustomerPanel *customerPanel = new CustomerPanel();
                 customerPanel->setCustomer(userDAO.fetchCompanyDetailsFromDB(user.getUserID()));
