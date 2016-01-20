@@ -48,3 +48,14 @@ NewOrder::~NewOrder()
 {
     delete ui;
 }
+
+void NewOrder::on_cancelButton_clicked()
+{
+    this->close();
+}
+
+void NewOrder::on_placeOrderButton_clicked()
+{
+    OrderDAO orderDAO(m_db);
+    orderDAO.insertOrderInDB(order.getOrderBuyer(), order.getOrderItems());
+}

@@ -19,6 +19,10 @@ void CustomerPanel::setCustomer(Customer cust){
     this->customer = cust;
 }
 
+void CustomerPanel::setCart(map<ProductBase, int> cart){
+    this->customer.setCart(cart);
+}
+
 CustomerPanel::~CustomerPanel()
 {
     delete ui;

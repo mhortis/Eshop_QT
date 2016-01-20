@@ -21,6 +21,7 @@ class CustomerPanel : public QMainWindow
 public:
     explicit CustomerPanel(QWidget *parent = 0);
     void setCustomer(Customer cust);
+    void setCart(map<ProductBase, int> cart);
     ~CustomerPanel();
 
 private slots:

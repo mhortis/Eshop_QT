@@ -3,8 +3,8 @@
 
 #include <QDialog>
 #include "dbconnection.h"
-#include "Order.h"
 #include "UserDAO.h"
+#include "OrderDAO.h"
 
 namespace Ui {
 class NewOrder;
@@ -19,6 +19,11 @@ public:
     void setOrder(Order order);
     void showOrder();
     ~NewOrder();
+
+private slots:
+    void on_cancelButton_clicked();
+
+    void on_placeOrderButton_clicked();
 
 private:
     Ui::NewOrder *ui;

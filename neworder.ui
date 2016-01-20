@@ -29,7 +29,7 @@
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>720</x>
@@ -42,7 +42,7 @@
     <string>Cancel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="placeOrderButton">
    <property name="geometry">
     <rect>
      <x>640</x>
