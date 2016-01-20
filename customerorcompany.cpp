@@ -7,7 +7,7 @@ CustomerOrCompany::CustomerOrCompany(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CustomerOrCompany)
 {
-    setAttribute( Qt::WA_DeleteOnClose );
+    //setAttribute( Qt::WA_DeleteOnClose );
     ui->setupUi(this);
     m_db = DBConnection::getInstance().getDB();
 }

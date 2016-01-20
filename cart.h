@@ -10,10 +10,10 @@ public:
         return instance;
     }
 
-    void addProductToCart(ProductBase product,int quantity);
-    map<int,int> getCart();
+    void setCart(map<ProductBase,int> customerCart);
+    map<ProductBase,int> getCart();
 private:
-    map<int,int> cart;
+    map<ProductBase,int> cart;
 };
 
 #endif // CART_H

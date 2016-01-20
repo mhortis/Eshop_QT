@@ -40,14 +40,12 @@ void MainWindow::on_loginButton_clicked()
                 this,
                 tr("Eshop"),
                 tr("Username and/or Password are invalid") );
-        //ui->statusLabel->setText("Username and/or Password are invalid");
     }
     else if(userCount > 1){
         QMessageBox::warning(
                 this,
                 tr("Eshop"),
                 tr("The user exists more than 1 times") );
-        //ui->statusLabel->setText("The user exists more than 1 times");
     }
     else{
         UserBase user = userDAO.fetchUserByUsernamePwdFromDB(username.toStdString(), password.toStdString());
@@ -77,7 +75,6 @@ void MainWindow::on_loginButton_clicked()
                         this,
                         tr("Eshop"),
                         tr("Wrong type of user!") );
-                    //ui->statusLabel->setText("Wrong type of user!");
                 }
         }
     }

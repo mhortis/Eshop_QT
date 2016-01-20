@@ -29,7 +29,6 @@ void OrdersListAndUpdate::showOrders(){
         ui->table->item(row,3)->setFlags(ui->table->item(row,3)->flags() ^ Qt::ItemIsEditable);
         row++;
     }
-
     ui->table->resizeRowsToContents();
     ui->table->resizeColumnsToContents();
     ui->table->show();
