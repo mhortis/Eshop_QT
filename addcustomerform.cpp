@@ -34,7 +34,7 @@ void AddCustomerForm::on_saveButton_clicked()
     address = ui->addressLineEdit->text().toLatin1();
     username = ui->usernameLineEdit->text().toLatin1();
     password = ui->passowordLineEdit->text().toLatin1();
-    //Create a new Customer
+    //Create a new Customer and set properties
     Person p = Person(username.constData(),password.constData());
     p.setName(name.constData());
     p.setSurname(surname.constData());

@@ -43,32 +43,39 @@ void CustomerOrders::on_table_doubleClicked(const QModelIndex &index)
     CustomerOrder customerOrder;
     customerOrder.setOrder(curOrder);
     customerOrder.showOrderItems();
-    customerOrder.setModal(true);
     customerOrder.exec();
 }
 
 void CustomerOrders::on_cancelOrder_clicked()
 {
     QModelIndexList indexes = ui->table->selectionModel()->selectedIndexes();
-    QModelIndex index;
-    for (int i = 0; i < indexes.count(); ++i)
-    {
-        index = indexes.at(i);
-    }
-
-    Order order = orders.at(index.row());
-    if(order.getOrderStatus() != "PROCESSING"){
+    if(indexes.empty()){
         QMessageBox::warning(
                 this,
-                tr("Order can't be cancelled"),
-                tr("This order can't be cancelled! Only 'Processing' orders can be cancelled") );
+                tr("Select an order"),
+                tr("Please select an order to be cancelled") );
     }
     else{
-        OrderDAO orderDAO(m_db);
-        orderDAO.updateOrderStatusInDB(order.getOrderNumber(), "CANCELLED");
-        QMessageBox::warning(
-                this,
-                tr("Order cancelled"),
-                tr("The order has been cancelled!") );
+        QModelIndex index;
+        for (int i = 0; i < indexes.count(); ++i)
+        {
+            index = indexes.at(i);
+        }
+
+        Order order = orders.at(index.row());
+        if(order.getOrderStatus() != "PROCESSING"){
+            QMessageBox::warning(
+                    this,
+                    tr("Order can't be cancelled"),
+                    tr("This order can't be cancelled! Only 'Processing' orders can be cancelled") );
+        }
+        else{
+            OrderDAO orderDAO(m_db);
+            orderDAO.updateOrderStatusInDB(order.getOrderNumber(), "CANCELLED");
+            QMessageBox::warning(
+                    this,
+                    tr("Order cancelled"),
+                    tr("The order has been cancelled!") );
+        }
     }
 }

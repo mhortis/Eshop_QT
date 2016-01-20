@@ -39,7 +39,7 @@ void AddSmartphoneForm::on_saveButton_clicked()
     batteryLife = ui->batteryLifeLineEdit->text().toInt();
     can4K = ui->fourKBox->isChecked();
     availability = ui->availabilityLineEdit->text().toInt();
-    //Create a new Smartphone
+    //Create a new Smartphone and set properties
     Smartphone s= Smartphone();
     s.setModel(model.constData());
     s.setManufacturer(manufacturer.constData());

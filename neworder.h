@@ -3,9 +3,9 @@
 
 #include <QDialog>
 #include "dbconnection.h"
-#include "Order.h"
 #include "UserDAO.h"
-#include "cart.h"
+#include "OrderDAO.h"
+
 namespace Ui {
 class NewOrder;
 }
@@ -21,15 +21,14 @@ public:
     ~NewOrder();
 
 private slots:
-    void on_cancelOrder_clicked();
-    void on_placeOrder_clicked();
+    void on_cancelButton_clicked();
+
+    void on_placeOrderButton_clicked();
 
 private:
     Ui::NewOrder *ui;
     QSqlDatabase m_db;
     Order order;
-    Cart cart;
-    map <ProductBase,int> cartMap;
 };
 
 #endif // NEWORDER_H

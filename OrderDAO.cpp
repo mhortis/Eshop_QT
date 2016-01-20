@@ -14,9 +14,10 @@ Order OrderDAO::insertOrderInDB(Customer cust, map<ProductBase, int> cart) {
 
     QSqlQuery query(db);
 
-    query.prepare("insert into orders (STATUS, COST)"
-        "values('Processing', ?);");
+    query.prepare("insert into orders (CUSTOMER_ID, STATUS, COST)"
+        "values(?, 'Processing', ?);");
 
+    query.addBindValue(cust.getUserID());
     double totalCost = 0;
     for (map<ProductBase, int>::iterator mapIter = cart.begin(); mapIter != cart.end(); mapIter++) {
         ProductBase cur = mapIter->first;
@@ -47,6 +48,49 @@ Order OrderDAO::insertOrderInDB(Customer cust, map<ProductBase, int> cart) {
         order.setOrderBuyer(cust);
         order.setOrderCost(totalCost);
         order.setOrderItems(cart);
+        order.setOrderNumber(orderID);
+        order.setOrderStatus("Processing");
+        return order;
+    }
+    else{
+        qDebug() << "Error in insertion of new Order. Error code: " << query.lastError() << endl;
+        Order order;
+        return order;
+    }
+}
+
+Order OrderDAO::insertOrderInDB(Order order){
+    if (!db.open()) {
+        qDebug() << "Invalid or unset database.";
+        Order order;
+        return order;
+    }
+
+    QSqlQuery query(db);
+
+    query.prepare("insert into orders (CUSTOMER_ID, STATUS, COST)"
+        "values(?, 'Processing', ?);");
+
+    query.addBindValue(order.getOrderBuyer().getUserID());
+    query.addBindValue(order.getOrderCost());
+
+    if(query.exec()){
+        int orderID = query.lastInsertId().toInt();
+        for (map<ProductBase, int>::iterator mapIter = order.getOrderItems().begin(); mapIter != order.getOrderItems().end(); mapIter++) {
+            query.prepare("insert into order_items (ORDER_ID, ITEM_ID, QUANTITY)"
+                          "values(?,?,?);");
+            ProductBase cur = mapIter->first;
+            int quantity = mapIter->second;
+            query.addBindValue(orderID);
+            query.addBindValue(cur.getSerial());
+            query.addBindValue(quantity);
+
+            if(!query.exec()){
+                qDebug() << "Error in insertion of Order Item. Error code: " << query.lastError() << endl;
+                Order order;
+                return order;
+            }
+        }
         order.setOrderNumber(orderID);
         order.setOrderStatus("Processing");
         return order;

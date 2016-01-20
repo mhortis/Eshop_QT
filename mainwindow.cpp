@@ -58,6 +58,7 @@ void MainWindow::on_loginButton_clicked()
                 break;
             }
             case 1:{
+                Cart::getInstance().clearCart();
                 this->hide();
                 //this->userID=user.getUserID();
                 CustomerPanel *customerPanel = new CustomerPanel();
@@ -66,6 +67,7 @@ void MainWindow::on_loginButton_clicked()
                 break;
             }
             case 2:{
+                Cart::getInstance().clearCart();
                 this->hide();
                 //this->userID=user.getUserID();
                 CustomerPanel *customerPanel = new CustomerPanel();

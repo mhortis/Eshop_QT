@@ -268,14 +268,13 @@ void CustomerProductList::on_addToCart_clicked()
     int i=0,quantity;
     for (vector<Availability>::iterator iter = products.begin(); iter != products.end(); iter++) {
         ProductBase product = iter->getProduct();
-        quantity = iter->getQuantity();
         i = std::distance(products.begin(), iter);
-        if ( ui->table->item(i,7)->text().toInt() > 0){
-            customer.addProductToCart(product,ui->table->item(i,ui->table->columnCount()-1)->text().toInt());
+        quantity = ui->table->item(i,7)->text().toInt();
+        if ( quantity > 0){
+            customer.addProductToCart(product,quantity);
         }
     }
-    cart = Cart::getInstance();
-    cart.setCart(customer.getCart());
+    Cart::getInstance().setCart(customer.getCart());
     this->close();
 }
 
@@ -283,4 +282,3 @@ void CustomerProductList::on_cancel_clicked()
 {
     this->close();
 }
-

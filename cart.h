@@ -11,6 +11,7 @@ public:
     }
 
     void setCart(map<ProductBase,int> customerCart);
+    void clearCart();
     map<ProductBase,int> getCart();
 private:
     map<ProductBase,int> cart;

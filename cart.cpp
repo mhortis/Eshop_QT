@@ -3,9 +3,12 @@
 
 
 void Cart::setCart(map<ProductBase,int> customerCart){
-    this->getInstance().cart=customerCart;
+    this->cart=customerCart;
 }
 
+void Cart::clearCart(){
+    this->cart.clear();
+}
 
 map<ProductBase,int> Cart::getCart(){
     return this->cart;

@@ -37,7 +37,7 @@ void AddTvForm::on_saveButton_clicked()
     price = ui->priceLineEdit->text().toDouble();
     can3D = ui->show3DBox->isChecked();
     availability = ui->availabilityLineEdit->text().toInt();
-    //Create a new TV
+    //Create a new TV and set properties
     TV t= TV();
     t.setModel(model.constData());
     t.setManufacturer(manufacturer.constData());

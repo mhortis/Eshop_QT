@@ -35,6 +35,10 @@ void Customer::setAddress(const char* address) {
     this->address = string(address);
 }
 
+void Customer::setCart(map<ProductBase, int> cart){
+    this->cart = cart;
+}
+
 void Customer::addProductToCart(ProductBase product, int quantity) {
 	for (map<ProductBase, int>::iterator mapIter = this->cart.begin(); mapIter != this->cart.end(); mapIter++) {
 		ProductBase cur = mapIter->first;
