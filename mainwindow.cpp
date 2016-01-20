@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -58,6 +59,7 @@ void MainWindow::on_loginButton_clicked()
             }
             case 1:{
                 this->hide();
+                //this->userID=user.getUserID();
                 CustomerPanel *customerPanel = new CustomerPanel();
                 customerPanel->setCustomer(userDAO.fetchPersonDetailsFromDB(user.getUserID()));
                 customerPanel->show();
@@ -65,6 +67,7 @@ void MainWindow::on_loginButton_clicked()
             }
             case 2:{
                 this->hide();
+                //this->userID=user.getUserID();
                 CustomerPanel *customerPanel = new CustomerPanel();
                 customerPanel->setCustomer(userDAO.fetchCompanyDetailsFromDB(user.getUserID()));
                 customerPanel->show();

@@ -27,8 +27,6 @@ private slots:
     void on_addToCart_clicked();
     void on_cancel_clicked();
 
-    void on_newOrder_clicked();
-
 private:
     Ui::CustomerProductList *ui;
     vector<Availability> products;

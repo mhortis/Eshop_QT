@@ -18,7 +18,7 @@ LogoutDialog::LogoutDialog(int panelType, QWidget *parent) :
                                   QMessageBox::Yes|QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       qDebug() << "Logged out";
-      this->close();
+      this->hide();
       MainWindow *mainW = new MainWindow();
       mainW->show();
     } else {

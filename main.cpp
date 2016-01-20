@@ -1,3 +1,5 @@
+//Μαγγίνα Ιωάννα ΑΜ 3670
+//Σταθακοπούλου Παναγιώτα ΑΜ 3483
 #include "mainwindow.h"
 #include <QApplication>
 #include "QtSql/QtSql"

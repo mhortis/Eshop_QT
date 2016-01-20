@@ -24,12 +24,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void setLabel(std::string text);
+    static int getUserID();
 private slots:
     void on_loginButton_clicked();
 
 private:
+
     Ui::MainWindow *ui;
     QSqlDatabase m_db;
+
 };
 
 #endif // MAINWINDOW_H

@@ -19,6 +19,10 @@ void CustomerPanel::setCustomer(Customer cust){
     this->customer = cust;
 }
 
+Customer CustomerPanel::getCustomer(){
+    return this->customer;
+}
+
 CustomerPanel::~CustomerPanel()
 {
     delete ui;

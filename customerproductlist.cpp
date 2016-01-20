@@ -284,7 +284,3 @@ void CustomerProductList::on_cancel_clicked()
     this->close();
 }
 
-void CustomerProductList::on_newOrder_clicked()
-{
-    this->close();
-}

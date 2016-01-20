@@ -9,6 +9,7 @@
 #include "OrderDAO.h"
 #include "neworder.h"
 #include "customerorders.h"
+#include "Customer.h"
 
 namespace Ui {
 class CustomerPanel;
@@ -21,6 +22,8 @@ class CustomerPanel : public QMainWindow
 public:
     explicit CustomerPanel(QWidget *parent = 0);
     void setCustomer(Customer cust);
+    int getUserID();
+    Customer getCustomer();
     ~CustomerPanel();
 
 private slots:

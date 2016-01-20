@@ -45,20 +45,29 @@ showCart::~showCart()
 void showCart::on_removeItem_clicked()
 {
     QModelIndexList indexes = ui->table->selectionModel()->selectedIndexes();
+    QModelIndexList RowsSelected = ui->table->selectionModel()->selectedRows();
     QModelIndex index;
     m_db = DBConnection::getInstance().getDB();
-    ProductDAO productDao = ProductDAO(m_db);
+    ProductBase product;
     cart = Cart::getInstance();
     customer.setCart(cart.getCart());
+    int serial;
     //Remove the specific Item
-    for (int i = 0; i < indexes.count(); ++i)
-    {
-        index = indexes.at(i);
-        customer.removeProductFromCart(customer.getCart().at(i)->getProduct());
+    for (map<ProductBase,int>::iterator iter = cart.getCart().begin(); iter != cart.getCart().end(); iter++) {
+        product = iter->first;
+        for (int i = 0; i < RowsSelected.count(); ++i)
+        {
+            index = RowsSelected.at(i);
+            serial =  ui->table->model()->data(index).toInt();
+            if(product.getSerial()== serial){
+                cart.getCart().erase(iter);
+                //customer.removeProductFromCart(product);
+                //ui->table->removeRow(index.row());
+            }
+        }
     }
-
     // Print again the Cart
-    cart.setCart(customer.getCart());
+    //cart.setCart(customer.getCart());
     ui->table->setColumnCount(5);
     ui->table->setHorizontalHeaderLabels(QString("Serial; Model ;Manufacturer ; Price; Quantity").split(";"));
     ui->table->setRowCount(cart.getCart().size());

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>New Order</string>
   </property>
   <widget class="QTableWidget" name="table">
    <property name="geometry">
@@ -29,7 +29,7 @@
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="cancelOrder">
    <property name="geometry">
     <rect>
      <x>720</x>
@@ -42,7 +42,7 @@
     <string>Cancel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="placeOrder">
    <property name="geometry">
     <rect>
      <x>624</x>
