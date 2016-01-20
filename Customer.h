@@ -16,6 +16,7 @@ public:
     void setAddress(const char* address);
     void addProductToCart(ProductBase product, int quantity);
 	void updateProductItemsInCart(ProductBase product, int newQuantity);
+    void setCart(map<ProductBase, int> cart);
 	void removeProductFromCart(ProductBase product);
 private:
     string afm;

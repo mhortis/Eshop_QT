@@ -19,6 +19,9 @@ public:
     explicit showCart(QWidget *parent = 0);
     ~showCart();
 
+private slots:
+    void on_removeItem_clicked();
+
 private:
     Ui::showCart *ui;
     QSqlDatabase m_db;

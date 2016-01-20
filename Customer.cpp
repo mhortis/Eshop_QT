@@ -45,6 +45,9 @@ void Customer::addProductToCart(ProductBase product, int quantity) {
 	}
 	this->cart.insert(pair<ProductBase, int>(product, quantity));
 }
+void Customer::setCart(map<ProductBase, int> cart){
+    this->cart = cart;
+}
 
 void Customer::removeProductFromCart(ProductBase product) {
 	for (map<ProductBase, int>::iterator mapIter = this->cart.begin(); mapIter != this->cart.end(); mapIter++) {
